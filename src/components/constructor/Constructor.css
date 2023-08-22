@@ -8,6 +8,6 @@
 .constructorWrapperCanvas {
     position: absolute !important;
     bottom: 0;
-    height: 140vh !important;
+    height: calc(100vh + 231px) !important;
 }
 

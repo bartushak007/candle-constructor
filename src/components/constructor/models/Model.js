@@ -1,9 +1,9 @@
 import React from "react";
 import { useGLTF } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { modelColors } from "../../../constants";
 
-export default function Model({ scale = 1, ...props }) {
-  const modelRef = React.useRef(null);
+export default function Model({ scale = 1, color, onClick, ...props }) {
+  // const modelRef = React.useRef(null);
 
   const { nodes } = useGLTF("/f16.gltf");
   const geometries = React.useMemo(
@@ -12,14 +12,20 @@ export default function Model({ scale = 1, ...props }) {
   );
 
   return (
-    <group ref={modelRef} {...props} dispose={null} scale={scale * 0.18}>
+    <group
+      // ref={modelRef}
+      {...props}
+      dispose={null}
+      scale={scale * 0.18}
+      onClick={onClick}
+    >
       {geometries.map((node, i) => (
         <mesh castShadow receiveShadow geometry={node.geometry} key={i}>
           <meshStandardMaterial
-            color={"red"}
+            color={color}
             roughness={0.5}
             transparent={true}
-            // opacity={0.5}
+            opacity={color === modelColors.initModelColor ? 0.5 : 1}
           />
         </mesh>
       ))}

@@ -2,7 +2,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 40vh;
+  min-height: 231px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background: rgba(255, 255, 255, 0.2);
@@ -27,11 +27,26 @@
 
 .colorsPaletteEmptyTitle {
   color: #000;
-  font-family: PP Neue Montreal;
+  font-family: monospace;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+}
+
+.colorsPaletteWrapper {
+  width: 100%;
+  height: 100%;
+  padding: 12px 0;
+}
+
+.colorsPaletteHead {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 38px;
+  padding: 0 15px;
 }
 
 .colorsPaletteRandom {
@@ -47,7 +62,7 @@
     rgba(255, 0, 0, 0.5) 360deg
   );
   color: #fff;
-  font-family: PP Neue Montreal;
+  font-family: monospace;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -61,5 +76,42 @@
   opacity: 0.7;
 }
 .colorsPaletteRandom:active {
+  opacity: 0.3;
+}
+
+.colorsPaletteCreateBtn {
+  width: 100%;
+  max-width: 335px;
+  display: flex;
+  padding: 19px 116px 19px 118px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+  font-family: monospace;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  outline: 0;
+  transition: 0.5s;
+}
+.colorsPaletteCreateBtn:hover {
   opacity: 0.5;
+}
+.colorsPaletteCreateBtn:disabled,
+.colorsPaletteCreateBtn:active {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  opacity: 0.2;
+  background: rgba(255, 255, 255, 0.2);
+  color: #000;
+}
+
+
+.colorsPaletteCreateWrapper {
+  padding: 20px 20px 0;
+  display: flex;
+  justify-content: center;
 }
