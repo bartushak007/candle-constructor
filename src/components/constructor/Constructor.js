@@ -5,7 +5,8 @@ import Model from "./models/Model";
 import "./Constructor.css";
 import Scale from "./models/Scale";
 import ColorsPalette from "./colors-palette";
-import { modelColors } from "../../constants";
+import { modelColors, paletteColors } from "../../constants";
+import { getRandomArrayItem } from "../../helpers";
 
 const modelsGroup = [
   {
@@ -47,6 +48,15 @@ const Constructor = () => {
     );
   };
 
+  const updateRandomlyAllModels = () => {
+    setModels((models) =>
+      models.map((model) => ({
+        ...model,
+        color: getRandomArrayItem(paletteColors).color,
+      }))
+    );
+  };
+
   return (
     <div className="constructorWrapper">
       <Canvas className="constructorWrapperCanvas">
@@ -76,6 +86,7 @@ const Constructor = () => {
         isInit={isInit}
         updateColor={updateColorOfModel}
         disableCreate={disableCreate}
+        handleRandom={updateRandomlyAllModels}
       />
     </div>
   );
