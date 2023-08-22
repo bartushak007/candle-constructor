@@ -69,6 +69,7 @@ const Constructor = () => {
           {models.map((model) => (
             <Model
               key={model.id}
+              isSelected={model.id === selectedModel}
               color={model.color}
               scale={1}
               position={model.position}
