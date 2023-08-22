@@ -1,0 +1,65 @@
+.colorsPalette {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40vh;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation-duration: 1.2s;
+  animation-name: slideFromBottom;
+}
+
+@keyframes slideFromBottom {
+  from {
+    margin-bottom: -100vh;
+  }
+
+  to {
+    margin-bottom: 0%;
+  }
+}
+
+.colorsPaletteEmptyTitle {
+  color: #000;
+  font-family: PP Neue Montreal;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.colorsPaletteRandom {
+  border-radius: 28px;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgba(255, 0, 0, 0.5) 0deg,
+    rgba(250, 255, 0, 0.5) 61.87268257141113deg,
+    rgba(20, 255, 0, 0.5) 133.1239664554596deg,
+    rgba(0, 224, 255, 0.5) 189.37498569488525deg,
+    rgba(36, 0, 255, 0.5) 251.25110149383545deg,
+    rgba(255, 0, 199, 0.5) 309.3771457672119deg,
+    rgba(255, 0, 0, 0.5) 360deg
+  );
+  color: #fff;
+  font-family: PP Neue Montreal;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  outline: 0;
+  border: 0;
+  transition: 0.3s;
+  padding: 7px 11px 6px;
+}
+.colorsPaletteRandom:hover {
+  opacity: 0.7;
+}
+.colorsPaletteRandom:active {
+  opacity: 0.5;
+}

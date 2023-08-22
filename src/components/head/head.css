@@ -1,0 +1,46 @@
+.constructorHead {
+  display: flex;
+  width: fit-content;
+  padding: 15px 0 0 15px;
+  position: absolute;
+  top: 0;
+}
+
+.constructorHead__backBtn {
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  margin-right: 16px;
+}
+
+.constructorHead__backBtn svg {
+  height: 20px;
+  display: block;
+}
+
+.constructorHead__btn {
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  color: #000;
+  font-family: PP Neue Montreal;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #000;
+  outline: 0;
+  margin-right: 3px;
+  transition: 0.3s;
+  opacity: 0.5;
+}
+
+.constructorHead__btn--selected {
+  opacity: 1;
+}
