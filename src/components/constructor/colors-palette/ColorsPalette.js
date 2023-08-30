@@ -7,6 +7,7 @@ const ColorsPalette = ({
   updateColor,
   disableCreate,
   handleRandom,
+  handlePaintAll,
 }) => {
   return (
     <div className="colorsPalette">
@@ -21,7 +22,8 @@ const ColorsPalette = ({
           </div>
           <HorizontalColors updateColor={updateColor} />
           <div className="colorsPaletteCreateWrapper">
-            <button disabled={disableCreate} className="colorsPaletteCreateBtn">
+          {/* disabled={disableCreate} */}
+            <button  onClick={() => handlePaintAll()} className="colorsPaletteCreateBtn"> 
               СТВОРИТИ
             </button>
           </div>

@@ -7,6 +7,7 @@ import Scale from "./models/Scale";
 import ColorsPalette from "./colors-palette";
 import { modelColors, paletteColors } from "../../constants";
 import { getRandomArrayItem } from "../../helpers";
+import ResetInitCameraPosition from "./models/ResetInitCameraPosition";
 
 const modelsGroup = [
   {
@@ -29,6 +30,8 @@ const Constructor = () => {
 
   const [selectedModel, setSelectedModel] = React.useState(null);
   const [models, setModels] = React.useState(modelsGroup);
+
+  const [resetState, setResetState] = React.useState(false);
 
   const disableCreate = React.useMemo(
     () => models.some(({ color }) => color === modelColors.initModelColor),
@@ -57,10 +60,23 @@ const Constructor = () => {
     );
   };
 
+  const updateAllModelsWithColor = (color = 'red') => {
+    setModels((models) =>
+      models.map((model) => ({
+        ...model,
+        color: model.color === modelColors.initModelColor ? color : model.color,
+      }))
+    );
+    setResetState(true);
+  };
+
   return (
     <div className="constructorWrapper">
       <Canvas className="constructorWrapperCanvas">
         {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
+        {resetState && (
+          <ResetInitCameraPosition stopReset={() => setResetState(false)} />
+        )}
         <ambientLight intensity={0.9} />
         <directionalLight position={[-2, -2, -2]} />
         <directionalLight position={[2, 2, 2]} />
@@ -88,6 +104,7 @@ const Constructor = () => {
         updateColor={updateColorOfModel}
         disableCreate={disableCreate}
         handleRandom={updateRandomlyAllModels}
+        handlePaintAll={updateAllModelsWithColor}
       />
     </div>
   );
