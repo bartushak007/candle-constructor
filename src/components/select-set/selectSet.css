@@ -1,0 +1,66 @@
+.constructorSelectSet {
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 40px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 21px;
+}
+
+.constructorSetItem {
+  width: 100%;
+  margin-top: 30px;
+  transition: 0.3s;
+}
+.constructorSetItem:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+.constructorSetItem:active {
+  opacity: 0.4;
+}
+.constructorSetItemSelected {
+  opacity: 0.4;
+}
+
+.constructorSetItemCoverBox {
+  border-radius: 6px;
+  border: 1px solid #989898;
+  background: #a5a9ae;
+  width: 100%;
+  aspect-ratio: 332 / 228;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.constructorSetCover {
+  padding: 10px;
+  height: 100%;
+}
+
+.constructorSetCoverTitle {
+  margin-top: 7px;
+  text-align: center;
+}
+
+.constructorSetCoverTitle,
+.constructorSetCoverTitleHighlight {
+  color: #606060;
+  text-align: center;
+  font-family: PP Neue Montreal;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.constructorSetCoverTitleHighlight {
+  border-radius: 4px;
+  background: #faff00;
+  display: inline-block;
+  padding: 3px 5px;
+}

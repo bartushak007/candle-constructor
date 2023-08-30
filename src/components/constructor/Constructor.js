@@ -9,27 +9,12 @@ import { modelColors, paletteColors } from "../../constants";
 import { getRandomArrayItem } from "../../helpers";
 import ResetInitCameraPosition from "./models/ResetInitCameraPosition";
 
-const modelsGroup = [
-  {
-    type: "thin1",
-    color: modelColors.initModelColor,
-    position: [-1, 0, 0],
-    id: 0,
-  },
-  {
-    type: "thin1",
-    color: modelColors.initModelColor,
-    position: [1, 0, 0],
-    id: 1,
-  },
-];
-
-const Constructor = () => {
+const Constructor = ({ modelsSettings }) => {
   const [isInit, setIsInit] = React.useState(true);
   const [scale, setScale] = React.useState(0.01);
 
   const [selectedModel, setSelectedModel] = React.useState(null);
-  const [models, setModels] = React.useState(modelsGroup);
+  const [models, setModels] = React.useState(modelsSettings);
 
   const [resetState, setResetState] = React.useState(false);
 
@@ -60,7 +45,7 @@ const Constructor = () => {
     );
   };
 
-  const updateAllModelsWithColor = (color = 'red') => {
+  const updateAllModelsWithColor = (color = "red") => {
     setModels((models) =>
       models.map((model) => ({
         ...model,
@@ -87,7 +72,7 @@ const Constructor = () => {
               key={model.id}
               isSelected={model.id === selectedModel}
               color={model.color}
-              scale={1}
+              scale={model.scale}
               position={model.position}
               onClick={() => {
                 updateSelectedModel(model.id);
