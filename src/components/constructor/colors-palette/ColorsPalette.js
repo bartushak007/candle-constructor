@@ -22,8 +22,12 @@ const ColorsPalette = ({
           </div>
           <HorizontalColors updateColor={updateColor} />
           <div className="colorsPaletteCreateWrapper">
-          {/* disabled={disableCreate} */}
-            <button  onClick={() => handlePaintAll()} className="colorsPaletteCreateBtn"> 
+            <button
+              onClick={() => handlePaintAll()}
+              className={`colorsPaletteCreateBtn ${
+                disableCreate && "colorsPaletteCreateBtnDisabled"
+              }`}
+            >
               СТВОРИТИ
             </button>
           </div>

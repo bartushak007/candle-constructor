@@ -99,14 +99,17 @@
   transition: 0.5s;
 }
 .colorsPaletteCreateBtn:hover {
-  opacity: 0.5;
+  opacity: 0.8;
 }
-.colorsPaletteCreateBtn:disabled,
+.colorsPaletteCreateBtnDisabled,
 .colorsPaletteCreateBtn:active {
   border: 1px solid rgba(0, 0, 0, 0.2);
   opacity: 0.2;
   background: rgba(255, 255, 255, 0.2);
   color: #000;
+}
+.colorsPaletteCreateBtn:active {
+  opacity: 0.5;
 }
 
 
