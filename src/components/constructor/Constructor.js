@@ -8,13 +8,15 @@ import ColorsPalette from "./colors-palette";
 import { modelColors, paletteColors } from "../../constants";
 import { getRandomArrayItem } from "../../helpers";
 import ResetInitCameraPosition from "./models/ResetInitCameraPosition";
+import ZoomOutCameraPosition from "./models/ZoomOutCameraPosition";
 
-const Constructor = ({ modelsSettings }) => {
+const Constructor = ({ selectedSet, saveUserColorsSet }) => {
   const [isInit, setIsInit] = React.useState(true);
+  const [isClosing, setIsClosing] = React.useState(false);
   const [scale, setScale] = React.useState(0.01);
 
   const [selectedModel, setSelectedModel] = React.useState(null);
-  const [models, setModels] = React.useState(modelsSettings);
+  const [models, setModels] = React.useState(selectedSet.models);
 
   const [resetState, setResetState] = React.useState(false);
 
@@ -55,13 +57,19 @@ const Constructor = ({ modelsSettings }) => {
     setResetState(true);
   };
 
+  const saveResult = () => {
+    saveUserColorsSet({ ...selectedSet, models });
+    setIsClosing(true);
+  };
+
   return (
     <div className="constructorWrapper">
       <Canvas className="constructorWrapperCanvas">
         {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
-        {resetState && (
+        {resetState && !isClosing && (
           <ResetInitCameraPosition stopReset={() => setResetState(false)} />
         )}
+        {isClosing && <ZoomOutCameraPosition />}
         <ambientLight intensity={0.9} />
         <directionalLight position={[-2, -2, -2]} />
         <directionalLight position={[2, 2, 2]} />
@@ -85,11 +93,13 @@ const Constructor = ({ modelsSettings }) => {
       </Canvas>
 
       <ColorsPalette
-        isInit={isInit}
+        isInit={isInit && disableCreate}
+        isClosing={isClosing}
         updateColor={updateColorOfModel}
         disableCreate={disableCreate}
         handleRandom={updateRandomlyAllModels}
         handlePaintAll={updateAllModelsWithColor}
+        saveResult={saveResult}
       />
     </div>
   );

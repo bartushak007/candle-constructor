@@ -4,13 +4,15 @@ import HorizontalColors from "../horizontal-colors";
 
 const ColorsPalette = ({
   isInit,
+  isClosing,
   updateColor,
   disableCreate,
   handleRandom,
   handlePaintAll,
+  saveResult,
 }) => {
   return (
-    <div className="colorsPalette">
+    <div className={`colorsPalette ${isClosing && "colorsPaletteClosing"}`}>
       {isInit && <div className="colorsPaletteEmptyTitle">TAP THE CANDLE</div>}
       {!isInit && (
         <div className="colorsPaletteWrapper">
@@ -23,7 +25,7 @@ const ColorsPalette = ({
           <HorizontalColors updateColor={updateColor} />
           <div className="colorsPaletteCreateWrapper">
             <button
-              onClick={() => handlePaintAll()}
+              onClick={() => (disableCreate ? handlePaintAll() : saveResult())}
               className={`colorsPaletteCreateBtn ${
                 disableCreate && "colorsPaletteCreateBtnDisabled"
               }`}

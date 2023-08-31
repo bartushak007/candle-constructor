@@ -8,15 +8,24 @@ import Constructor from "./components/constructor";
 function CandleConstructor() {
   const [step, setStep] = React.useState(0);
   const [selectedSetId, setSelectedSetId] = React.useState(null);
+  const [userColorsSet, setUserColorsSet] = React.useState(null);
+
+  const selectedSet = React.useMemo(
+    () => candleSets.find((c) => c.id === selectedSetId),
+    [selectedSetId]
+  );
 
   const selectNewSet = (newSet) => {
     setSelectedSetId(newSet);
     setStep(1);
   };
-  const selectedSet = React.useMemo(
-    () => candleSets.find((c) => c.id === selectedSetId),
-    [selectedSetId]
-  );
+
+  const saveUserColorsSet = (set) => {
+    setUserColorsSet(set);
+    setTimeout(() => {
+      setStep(2);
+    }, 500);
+  };
 
   return (
     <div className="candleConstructor">
@@ -28,7 +37,17 @@ function CandleConstructor() {
           selectNewSet={selectNewSet}
         />
       )}
-      {step === 1 && <Constructor modelsSettings={selectedSet.models} />}
+      {step === 1 && (
+        <Constructor
+          selectedSet={
+            userColorsSet && userColorsSet?.id === selectedSetId
+              ? userColorsSet
+              : selectedSet
+          }
+          saveUserColorsSet={saveUserColorsSet}
+        />
+      )}
+      {/* {step === 2 && <Constructor selectedSet={userColorsSet} />} */}
     </div>
   );
 }
