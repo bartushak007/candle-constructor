@@ -11,3 +11,9 @@
     height: calc(100dvh + 231px) !important;
 }
 
+.constructorPreviewWrapperCanvas {
+    position: static !important;
+    width: 100%;
+    height: auto !important;
+    aspect-ratio: 338 / 314;
+}

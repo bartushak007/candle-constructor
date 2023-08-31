@@ -3,7 +3,8 @@ import "./candleConstructor.css";
 import Head from "./components/head/Head";
 import SelectSet from "./components/select-set/SelectSet";
 import { candleSets } from "./assets/data";
-import Constructor from "./components/constructor";
+import Constructor from "./components/constructor/Constructor";
+import ConstructorPreview from "./components/constructor/ConstructorPreview";
 
 function CandleConstructor() {
   const [step, setStep] = React.useState(0);
@@ -47,7 +48,7 @@ function CandleConstructor() {
           saveUserColorsSet={saveUserColorsSet}
         />
       )}
-      {/* {step === 2 && <Constructor selectedSet={userColorsSet} />} */}
+      {step === 2 && <ConstructorPreview selectedSet={userColorsSet} />}
     </div>
   );
 }
