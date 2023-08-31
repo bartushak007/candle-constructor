@@ -1,0 +1,163 @@
+.aboutSet {
+  padding: 20px;
+  width: 100%;
+  min-height: 231px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+
+  animation-duration: 1s;
+  animation-name: slideAboutSetFromBottom;
+}
+
+.aboutSetClosing {
+  animation-duration: 1s;
+  animation-name: slideAboutSetToBottom;
+}
+
+@keyframes slideAboutSetFromBottom {
+  from {
+    transform: translateY(100dvh);
+  }
+
+  to {
+    transform: translateY(0dvh);
+  }
+}
+
+@keyframes slideAboutSetToBottom {
+  from {
+    transform: translateY(0dvh);
+  }
+
+  to {
+    transform: translateY(100dvh);
+  }
+}
+
+.aboutSetHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aboutSetTitle {
+  color: #4a4c4e;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.aboutSetPrice {
+  color: #000;
+  font-family: PP Neue Montreal;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.aboutSetBuyBtn,
+.aboutSetShareBtn {
+  width: 100%;
+  margin-top: 21px;
+  display: flex;
+  padding: 19px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  outline: 0;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+.aboutSetBuyBtn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.aboutSetBuyBtn:active {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+  color: #000;
+}
+
+.aboutSetShareBtn {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+  color: #000;
+  margin-top: 10px;
+}
+.aboutSetShareBtn:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+.aboutSetShareBtn:active {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+  opacity: 1;
+}
+
+.aboutSetBox {
+  border-radius: 10px;
+  background-color: #c6cace;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.aboutSetYouWillGetTitle {
+  color: #4a4c4e;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.aboutSetYouWillGetGoods {
+  display: flex;
+  align-items: center;
+}
+.aboutSetYouWillGetPicture {
+  width: 67px;
+  height: 67px;
+  margin-right: 16px;
+  padding: 8px 0;
+  object-fit: contain;
+}
+.aboutSetYouWillGetName {
+  color: #000;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.aboutSetPayWith {
+  display: flex;
+  align-items: center;
+  color: #000;
+  font-family: Arial;
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 17px;
+}
+.aboutSetPayWith:first-of-type {
+    margin-top: 0;
+}
+.aboutSetPayWith * {
+  margin-right: 10px;
+}
+*.aboutSetPayWithMainIcon {
+  margin-right: 14px;
+}

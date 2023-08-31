@@ -1,5 +1,6 @@
 import { modelColors } from "../constants";
 import middleSetCover from "./set-covers/middleSet.png";
+import standSvg from "./images/stand.svg";
 
 export const candleSets = [
   {
@@ -31,6 +32,10 @@ export const candleSets = [
         id: 2,
       },
     ],
+    youWillGet: [
+      { src: middleSetCover, name: "Великий кастом сет на 12 свічок" },
+      { src: standSvg, name: "Підставка" },
+    ],
   },
   {
     id: 1,
@@ -53,6 +58,9 @@ export const candleSets = [
         id: 1,
       },
     ],
+    youWillGet: [
+      { src: middleSetCover, name: "Великий кастом сет на 12 свічок" },
+    ],
   },
   {
     id: 2,
@@ -67,6 +75,9 @@ export const candleSets = [
         scale: 1,
         id: 0,
       },
+    ],
+    youWillGet: [
+      { src: middleSetCover, name: "Великий кастом сет на 12 свічок" },
     ],
   },
 ];

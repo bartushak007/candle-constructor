@@ -5,6 +5,7 @@ import "./Constructor.css";
 import Scale from "./models/Scale";
 import ResetInitCameraPosition from "./models/ResetInitCameraPosition";
 import ZoomOutCameraPosition from "./models/ZoomOutCameraPosition";
+import AboutSet from "../about-set/AboutSet";
 
 const ConstructorPreview = ({ selectedSet }) => {
   const [isClosing, setIsClosing] = React.useState(false);
@@ -24,7 +25,7 @@ const ConstructorPreview = ({ selectedSet }) => {
         <directionalLight position={[-2, -2, -2]} />
         <directionalLight position={[2, 2, 2]} />
 
-        <group scale={scale}>
+        <group scale={scale * 2.5}>
           {selectedSet.models.map((model) => (
             <Model
               key={model.id}
@@ -34,9 +35,8 @@ const ConstructorPreview = ({ selectedSet }) => {
             />
           ))}
         </group>
-
-        
       </Canvas>
+      <AboutSet selectedSet={selectedSet} isClosing={isClosing} />
     </div>
   );
 };
