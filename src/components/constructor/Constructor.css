@@ -1,6 +1,6 @@
 .constructorWrapper {
     width: 100%;
-    height: 100vh;
+    min-height: 100dvh;
     position: relative;
     overflow: hidden;
 }
@@ -8,6 +8,6 @@
 .constructorWrapperCanvas {
     position: absolute !important;
     bottom: 0;
-    height: calc(100vh + 231px) !important;
+    height: calc(100dvh + 231px) !important;
 }
 

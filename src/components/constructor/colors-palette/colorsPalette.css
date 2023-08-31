@@ -17,7 +17,7 @@
 
 @keyframes slideFromBottom {
   from {
-    margin-bottom: -100vh;
+    margin-bottom: -100dvh;
   }
 
   to {
