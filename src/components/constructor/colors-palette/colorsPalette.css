@@ -15,13 +15,28 @@
   animation-name: slideFromBottom;
 }
 
+.colorsPaletteClosing {
+  animation-duration: 1.8s;
+  animation-name: slideToBottom;
+}
+
 @keyframes slideFromBottom {
   from {
-    margin-bottom: -100dvh;
+    transform: translateY(100dvh);
   }
 
   to {
-    margin-bottom: 0%;
+    transform: translateY(0dvh);
+  }
+}
+
+@keyframes slideToBottom {
+  from {
+    transform: translateY(0dvh);
+  }
+
+  to {
+    transform: translateY(100dvh);
   }
 }
 
@@ -111,7 +126,6 @@
 .colorsPaletteCreateBtn:active {
   opacity: 0.5;
 }
-
 
 .colorsPaletteCreateWrapper {
   padding: 20px 20px 0;
