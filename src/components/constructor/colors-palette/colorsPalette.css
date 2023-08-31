@@ -11,12 +11,12 @@
   justify-content: center;
   align-items: center;
 
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-name: slideFromBottom;
 }
 
 .colorsPaletteClosing {
-  animation-duration: 1.8s;
+  animation-duration: 1s;
   animation-name: slideToBottom;
 }
 
