@@ -34,6 +34,8 @@ const ConstructorPreview = ({ selectedSet }) => {
             />
           ))}
         </group>
+
+        
       </Canvas>
     </div>
   );

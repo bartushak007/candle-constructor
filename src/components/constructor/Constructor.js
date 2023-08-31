@@ -4,7 +4,7 @@ import { OrbitControls } from "@react-three/drei";
 import Model from "./models/Model";
 import "./Constructor.css";
 import Scale from "./models/Scale";
-import ColorsPalette from "./colors-palette";
+import ColorsPalette from "../colors-palette";
 import { modelColors, paletteColors } from "../../constants";
 import { getRandomArrayItem } from "../../helpers";
 import ResetInitCameraPosition from "./models/ResetInitCameraPosition";

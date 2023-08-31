@@ -1,6 +1,6 @@
 import React from "react";
 import "./colorsPalette.css";
-import HorizontalColors from "../horizontal-colors";
+import HorizontalColors from "./horizontal-colors";
 
 const ColorsPalette = ({
   isInit,
