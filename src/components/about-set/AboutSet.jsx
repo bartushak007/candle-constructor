@@ -4,6 +4,7 @@ import cardSvg from "../../assets/images/card.svg";
 import visaSvg from "../../assets/images/visa.svg";
 import mastercardSvg from "../../assets/images/mastercard.svg";
 import globeSvg from "../../assets/images/globe.svg";
+import Accordion from "../accordion";
 
 const AboutSet = ({ isClosing, selectedSet }) => {
   return (
@@ -13,7 +14,7 @@ const AboutSet = ({ isClosing, selectedSet }) => {
         <h3 className="aboutSetPrice">$50</h3>
       </div>
 
-      <button className="aboutSetBuyBtn">Buy</button>
+      <button className="aboutSetBuyBtn">ДОДАТИ В КОШИК</button>
       <button className="aboutSetShareBtn">Share to Instagram</button>
 
       <div className="aboutSetBox">
@@ -47,6 +48,8 @@ const AboutSet = ({ isClosing, selectedSet }) => {
           <span>Worldwide shipping</span>
         </div>
       </div>
+
+      <Accordion aboutProduct={selectedSet.aboutProduct} />
     </div>
   );
 };

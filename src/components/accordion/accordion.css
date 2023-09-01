@@ -1,0 +1,48 @@
+.candleConstructorAccordion {
+  border-radius: 10px;
+  background-color: #c6cace;
+  margin-top: 10px;
+}
+
+.candleConstructorAccordionItem {
+  border-bottom: 1px #b4b6b9 solid;
+}
+.candleConstructorAccordionItemLast {
+  border-bottom: 0;
+}
+.candleConstructorAccordionHead {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+}
+.candleConstructorAccordionHead:hover {
+  cursor: pointer;
+}
+
+.candleConstructorAccordionTitle {
+  flex-grow: 1;
+  color: #000;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.candleConstructorAccordionArrow,
+.candleConstructorAccordionArrowOpen {
+    transition: 0.3s;
+}
+
+.candleConstructorAccordionArrowOpen {
+    transform: rotate(180deg);
+}
+
+.candleConstructorAccordionContent,
+.candleConstructorAccordionContentOpen {
+  max-height: 0;
+  overflow: hidden;
+}
+.candleConstructorAccordionContentOpen {
+  max-height: fit-content;
+  padding: 0 20px 16px;
+}

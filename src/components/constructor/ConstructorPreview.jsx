@@ -15,7 +15,7 @@ const ConstructorPreview = ({ selectedSet }) => {
 
   return (
     <div className="constructorWrapper">
-      <Canvas className="constructorPreviewWrapperCanvas">
+      <Canvas className="constructorPreviewWrapperCanvas" dpr={[1, 4]}>
         {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
         {resetState && !isClosing && (
           <ResetInitCameraPosition stopReset={() => setResetState(false)} />
