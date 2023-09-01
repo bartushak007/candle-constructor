@@ -1,0 +1,82 @@
+.candlesModalOverlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000000cc;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  transition: 0.2s;
+  opacity: 1;
+
+  animation-duration: 0.2s;
+  animation-name: candlesModalOpacity;
+}
+
+.candlesModalOverlayClosing {
+  opacity: 0;
+}
+
+.candlesModal {
+  width: 100%;
+  max-width: 375px;
+  border-radius: 20px;
+  background: #cdcdcd;
+  padding: 68px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.2s;
+
+  animation-duration: 0.2s;
+  animation-name: candlesModalAppear;
+}
+
+.candlesModalOverlayClosing .candlesModal {
+  transform: scale(0);
+}
+
+.candlesModalSuccessIcon {
+  background-color: #d9d9d9;
+  border: 2px solid #000;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.candlesModalTitle {
+  color: #000;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 48px;
+  margin-bottom: 35px;
+}
+
+@keyframes candlesModalAppear {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes candlesModalOpacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
