@@ -6,6 +6,7 @@ import Scale from "./camera-positioning/Scale";
 import ResetInitCameraPosition from "./camera-positioning/ResetInitCameraPosition";
 import ZoomOutCameraPosition from "./camera-positioning/ZoomOutCameraPosition";
 import AboutSet from "../about-set/AboutSet";
+import { paletteColorsByIdDictionary } from "../../constants";
 
 const ConstructorPreview = ({ selectedSet }) => {
   const [isClosing, setIsClosing] = React.useState(false);
@@ -29,7 +30,7 @@ const ConstructorPreview = ({ selectedSet }) => {
           {selectedSet.models.map((model) => (
             <Model
               key={model.id}
-              color={model.color}
+              color={paletteColorsByIdDictionary[model.colorId]}
               scale={model.scale}
               position={model.position}
             />
