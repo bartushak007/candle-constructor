@@ -5,10 +5,7 @@ import Model from "./models/Model";
 import "./Constructor.css";
 import Scale from "./camera-positioning/Scale";
 import ColorsPalette from "../colors-palette";
-import {
-  paletteColors,
-  paletteColorsByIdDictionary,
-} from "../../constants";
+import { paletteColors, paletteColorsByIdDictionary } from "../../constants";
 import { getRandomArrayItem } from "../../helpers";
 import ResetInitCameraPosition from "./camera-positioning/ResetInitCameraPosition";
 import ZoomOutCameraPosition from "./camera-positioning/ZoomOutCameraPosition";
@@ -94,7 +91,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
           ))}
         </group>
 
-        <OrbitControls />
+        <OrbitControls enablePan={false} />
       </Canvas>
 
       <ColorsPalette
