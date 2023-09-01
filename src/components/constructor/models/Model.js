@@ -36,7 +36,7 @@ export default function Model({
       onClick={onClick}
     >
       {geometries.map((node, i) => (
-        <mesh castShadow receiveShadow geometry={node.geometry} key={i}>
+        <mesh castShadow receiveShadow geometry={node.geometry} key={i} rotation={[0.05, 0, 0]}>
           <meshStandardMaterial
             color={color || modelColors.initModelColor}
             roughness={0.5}

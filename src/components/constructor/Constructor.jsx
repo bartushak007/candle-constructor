@@ -6,7 +6,6 @@ import "./Constructor.css";
 import Scale from "./models/Scale";
 import ColorsPalette from "../colors-palette";
 import {
-  modelColors,
   paletteColors,
   paletteColorsByIdDictionary,
 } from "../../constants";
