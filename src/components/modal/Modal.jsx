@@ -35,7 +35,7 @@ const Modal = ({ isVisible, closeModal }) => {
             <path
               d="M3 17.5L23 37.5L57.5 3"
               stroke="black"
-              stroke-width="5"
+              strokeWidth="5"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
