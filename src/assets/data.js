@@ -1,4 +1,3 @@
-import { modelColors } from "../constants";
 import middleSetCover from "./set-covers/middleSet.png";
 import standSvg from "./images/stand.svg";
 
@@ -84,15 +83,15 @@ export const candleSets = [
       {
         type: "thin1",
         colorId: null,
-        position: [-0.5, -0.2, 0],
-        scale: 0.5,
+        position: [-0.8, -0.2, 0],
+        scale: 0.8,
         id: 0,
       },
       {
         type: "thin1",
         colorId: null,
-        position: [0.5, -0.2, 0],
-        scale: 0.5,
+        position: [0.8, -0.2, 0],
+        scale: 0.8,
         id: 1,
       },
     ],
