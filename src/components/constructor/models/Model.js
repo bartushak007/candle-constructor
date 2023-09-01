@@ -20,10 +20,10 @@ export default function Model({
 
   useFrame(() => {
     if (isSelected && animatedPosition[1] < 4) {
-      setAnimatedPosition(([x, y, z]) => [x, y + 0.1, z]);
+      setAnimatedPosition(([x, y, z]) => [x, y + 0.5, z]);
     }
     if (!isSelected && animatedPosition[1] > 0) {
-      setAnimatedPosition(([x, y, z]) => [x, y - 0.1, z]);
+      setAnimatedPosition(([x, y, z]) => [x, y - 0.5, z]);
     }
   });
 
