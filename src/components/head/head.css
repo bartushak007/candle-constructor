@@ -1,7 +1,7 @@
 .constructorHead {
   display: flex;
   width: fit-content;
-  padding: 15px 0 0 15px;
+  padding: 15px 0 0 0;
   position: fixed;
   top: 0;
   z-index: 999;
@@ -13,7 +13,9 @@
   background-color: transparent;
   border: 0;
   outline: 0;
-  margin-right: 16px;
+  margin-right: 8px;
+  padding-right: 8px;
+  padding-left: 15px;
 }
 
 .constructorHead__backBtn svg {
