@@ -3,15 +3,15 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Model from "./models/Model";
 import "./Constructor.css";
-import Scale from "./models/Scale";
+import Scale from "./camera-positioning/Scale";
 import ColorsPalette from "../colors-palette";
 import {
   paletteColors,
   paletteColorsByIdDictionary,
 } from "../../constants";
 import { getRandomArrayItem } from "../../helpers";
-import ResetInitCameraPosition from "./models/ResetInitCameraPosition";
-import ZoomOutCameraPosition from "./models/ZoomOutCameraPosition";
+import ResetInitCameraPosition from "./camera-positioning/ResetInitCameraPosition";
+import ZoomOutCameraPosition from "./camera-positioning/ZoomOutCameraPosition";
 
 const Constructor = ({ selectedSet, saveUserColorsSet }) => {
   const [isInit, setIsInit] = React.useState(true);

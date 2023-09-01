@@ -2,9 +2,9 @@ import React from "react";
 import { Canvas } from "@react-three/fiber";
 import Model from "./models/Model";
 import "./Constructor.css";
-import Scale from "./models/Scale";
-import ResetInitCameraPosition from "./models/ResetInitCameraPosition";
-import ZoomOutCameraPosition from "./models/ZoomOutCameraPosition";
+import Scale from "./camera-positioning/Scale";
+import ResetInitCameraPosition from "./camera-positioning/ResetInitCameraPosition";
+import ZoomOutCameraPosition from "./camera-positioning/ZoomOutCameraPosition";
 import AboutSet from "../about-set/AboutSet";
 
 const ConstructorPreview = ({ selectedSet }) => {
