@@ -12,21 +12,21 @@ export const candleSets = [
     models: [
       {
         type: "thin1",
-        color: modelColors.initModelColor,
+        colorId: null,
         position: [-1, -0.2, 0],
         scale: 0.5,
         id: 0,
       },
       {
         type: "thin1",
-        color: modelColors.initModelColor,
+        colorId: null,
         position: [0, -0.2, 0],
         scale: 0.5,
         id: 1,
       },
       {
         type: "thin1",
-        color: modelColors.initModelColor,
+        colorId: null,
         position: [1, -0.2, 0],
         scale: 0.5,
         id: 2,
@@ -83,14 +83,14 @@ export const candleSets = [
     models: [
       {
         type: "thin1",
-        color: modelColors.initModelColor,
+        colorId: null,
         position: [-0.5, -0.2, 0],
         scale: 0.5,
         id: 0,
       },
       {
         type: "thin1",
-        color: modelColors.initModelColor,
+        colorId: null,
         position: [0.5, -0.2, 0],
         scale: 0.5,
         id: 1,
@@ -146,7 +146,7 @@ export const candleSets = [
     models: [
       {
         type: "thin1",
-        color: modelColors.initModelColor,
+        colorId: null,
         position: [0, -0.2, 0],
         scale: 1,
         id: 0,

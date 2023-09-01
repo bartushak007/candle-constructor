@@ -38,10 +38,10 @@ export default function Model({
       {geometries.map((node, i) => (
         <mesh castShadow receiveShadow geometry={node.geometry} key={i}>
           <meshStandardMaterial
-            color={color}
+            color={color || modelColors.initModelColor}
             roughness={0.5}
             transparent={true}
-            opacity={color === modelColors.initModelColor ? 0.5 : 1}
+            opacity={!color ? 0.5 : 1}
           />
         </mesh>
       ))}

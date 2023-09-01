@@ -5,7 +5,11 @@ import Model from "./models/Model";
 import "./Constructor.css";
 import Scale from "./models/Scale";
 import ColorsPalette from "../colors-palette";
-import { modelColors, paletteColors } from "../../constants";
+import {
+  modelColors,
+  paletteColors,
+  paletteColorsByIdDictionary,
+} from "../../constants";
 import { getRandomArrayItem } from "../../helpers";
 import ResetInitCameraPosition from "./models/ResetInitCameraPosition";
 import ZoomOutCameraPosition from "./models/ZoomOutCameraPosition";
@@ -21,7 +25,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
   const [resetState, setResetState] = React.useState(false);
 
   const disableCreate = React.useMemo(
-    () => models.some(({ color }) => color === modelColors.initModelColor),
+    () => models.some(({ colorId }) => !colorId),
     [models]
   );
 
@@ -30,10 +34,10 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
     setSelectedModel(id);
   };
 
-  const updateColorOfModel = (color) => {
+  const updateColorOfModel = (colorId) => {
     setModels((models) =>
       models.map((model) =>
-        model.id === selectedModel ? { ...model, color } : model
+        model.id === selectedModel ? { ...model, colorId } : model
       )
     );
   };
@@ -42,19 +46,21 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
     setModels((models) =>
       models.map((model) => ({
         ...model,
-        color: getRandomArrayItem(paletteColors).color,
+        colorId: getRandomArrayItem(paletteColors).id,
       }))
     );
   };
 
-  const updateAllModelsWithColor = (color = "red") => {
-    setModels((models) =>
-      models.map((model) => ({
-        ...model,
-        color: model.color === modelColors.initModelColor ? color : model.color,
-      }))
-    );
-    setResetState(true);
+  const updateAllModelsWithColor = (colorId) => {
+    if (colorId) {
+      setModels((models) =>
+        models.map((model) => ({
+          ...model,
+          colorId: !model.colorId ? colorId : model.colorId,
+        }))
+      );
+      setResetState(true);
+    }
   };
 
   const saveResult = () => {
@@ -79,7 +85,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
             <Model
               key={model.id}
               isSelected={model.id === selectedModel}
-              color={model.color}
+              color={paletteColorsByIdDictionary[model.colorId]}
               scale={model.scale}
               position={model.position}
               onClick={() => {
@@ -100,6 +106,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
         handleRandom={updateRandomlyAllModels}
         handlePaintAll={updateAllModelsWithColor}
         saveResult={saveResult}
+        selectedColorId={models?.[selectedModel]?.colorId}
       />
     </div>
   );

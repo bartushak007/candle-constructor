@@ -2,7 +2,7 @@ import React from "react";
 import "./horizontalColors.css";
 import { paletteColors } from "../../../constants";
 
-const HorizontalColors = ({ updateColor }) => {
+const HorizontalColors = ({ updateColor, selectedColorId }) => {
   const ref = React.useRef(null);
 
   const handleWheel = (e) => {
@@ -15,10 +15,13 @@ const HorizontalColors = ({ updateColor }) => {
       {paletteColors.map((color) => (
         <div key={color.text} className="horizontalColorsColorWrapper">
           <button
-            onClick={() => updateColor(color.color)}
+            onClick={() => updateColor(color.id)}
             className="horizontalColorsColorBox"
-            id={`horizontalColorsColorBox-${color.text}`}
-            style={{ backgroundColor: color.color }}
+            id={`horizontalColorsColorBox-${color.id}`}
+            style={{
+              backgroundColor: color.color,
+              border: selectedColorId === color.id ? "1px solid #000" : "0",
+            }}
           />
           <label
             className="horizontalColorsColorText"

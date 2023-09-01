@@ -10,6 +10,7 @@ const ColorsPalette = ({
   handleRandom,
   handlePaintAll,
   saveResult,
+  selectedColorId,
 }) => {
   return (
     <div className={`colorsPalette ${isClosing && "colorsPaletteClosing"}`}>
@@ -22,10 +23,15 @@ const ColorsPalette = ({
               RANDOM
             </button>
           </div>
-          <HorizontalColors updateColor={updateColor} />
+          <HorizontalColors
+            updateColor={updateColor}
+            selectedColorId={selectedColorId}
+          />
           <div className="colorsPaletteCreateWrapper">
             <button
-              onClick={() => (disableCreate ? handlePaintAll() : saveResult())}
+              onClick={() =>
+                disableCreate ? handlePaintAll(selectedColorId) : saveResult()
+              }
               className={`colorsPaletteCreateBtn ${
                 disableCreate && "colorsPaletteCreateBtnDisabled"
               }`}
