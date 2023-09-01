@@ -12,7 +12,11 @@ export default function Model({
   ...props
 }) {
   const [animatedPosition, setAnimatedPosition] = React.useState(position);
-  const { nodes } = useGLTF("/f16.gltf");
+  const { nodes } = useGLTF(
+    process.env.PUBLIC_URL
+      ? `${window.location.origin}${process.env.PUBLIC_URL}/f16.gltf`
+      : "/f16.gltf"
+  );
   const geometries = React.useMemo(
     () => Object.values(nodes).filter((node) => node.geometry),
     [nodes]
