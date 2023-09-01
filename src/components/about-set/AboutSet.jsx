@@ -7,7 +7,7 @@ import globeSvg from "../../assets/images/globe.svg";
 import Accordion from "../accordion";
 import Modal from "../modal/Modal";
 
-const AboutSet = ({ isClosing, selectedSet }) => {
+const AboutSet = ({ isClosing, selectedSet, complete }) => {
   const [videoSavedModal, setVideoSavedModal] = React.useState(false);
 
   const closeModal = () => setVideoSavedModal(false);
@@ -21,7 +21,9 @@ const AboutSet = ({ isClosing, selectedSet }) => {
           <h3 className="aboutSetPrice">$50</h3>
         </div>
 
-        <button className="aboutSetBuyBtn">ДОДАТИ В КОШИК</button>
+        <button className="aboutSetBuyBtn" onClick={complete}>
+          ДОДАТИ В КОШИК
+        </button>
         <button
           className="aboutSetShareBtn"
           onClick={() => setVideoSavedModal(true)}

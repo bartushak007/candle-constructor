@@ -28,6 +28,12 @@ function CandleConstructor() {
     }, 500);
   };
 
+  const completeCandleConstructor = () => {
+    setStep(0);
+    setSelectedSetId(null);
+    setUserColorsSet(null);
+  };
+
   return (
     <div className="candleConstructor">
       <Head setStep={setStep} step={step} />
@@ -48,7 +54,12 @@ function CandleConstructor() {
           saveUserColorsSet={saveUserColorsSet}
         />
       )}
-      {step === 2 && <ConstructorPreview selectedSet={userColorsSet} />}
+      {step === 2 && (
+        <ConstructorPreview
+          selectedSet={userColorsSet}
+          completeCandleConstructor={completeCandleConstructor}
+        />
+      )}
     </div>
   );
 }

@@ -8,11 +8,19 @@ import ZoomOutCameraPosition from "./camera-positioning/ZoomOutCameraPosition";
 import AboutSet from "../about-set/AboutSet";
 import { paletteColorsByIdDictionary } from "../../constants";
 
-const ConstructorPreview = ({ selectedSet }) => {
+const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
   const [isClosing, setIsClosing] = React.useState(false);
   const [scale, setScale] = React.useState(0.01);
 
   const [resetState, setResetState] = React.useState(false);
+
+  const complete = () => {
+    setIsClosing(true);
+
+    setTimeout(() => {
+      completeCandleConstructor();
+    }, 500);
+  };
 
   return (
     <div className="constructorWrapper">
@@ -37,7 +45,11 @@ const ConstructorPreview = ({ selectedSet }) => {
           ))}
         </group>
       </Canvas>
-      <AboutSet selectedSet={selectedSet} isClosing={isClosing} />
+      <AboutSet
+        selectedSet={selectedSet}
+        isClosing={isClosing}
+        complete={complete}
+      />
     </div>
   );
 };
