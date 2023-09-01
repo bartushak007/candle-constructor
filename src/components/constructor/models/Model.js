@@ -19,24 +19,31 @@ export default function Model({
   );
 
   useFrame(() => {
-    if (isSelected && animatedPosition[1] < 0.5) {
-      setAnimatedPosition(([x, y, z]) => [x, y + 0.02, z]);
+    if (isSelected && animatedPosition[1] < 4) {
+      setAnimatedPosition(([x, y, z]) => [x, y + 0.1, z]);
     }
     if (!isSelected && animatedPosition[1] > 0) {
-      setAnimatedPosition(([x, y, z]) => [x, y - 0.02, z]);
+      setAnimatedPosition(([x, y, z]) => [x, y - 0.1, z]);
     }
   });
 
   return (
     <group
-      position={animatedPosition}
+      position={position}
       {...props}
       dispose={null}
       scale={scale * 0.18}
       onClick={onClick}
     >
       {geometries.map((node, i) => (
-        <mesh castShadow receiveShadow geometry={node.geometry} key={i} rotation={[0.05, 0, 0]}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={node.geometry}
+          key={i}
+          rotation={[0.05, 0, 0]}
+          position={animatedPosition}
+        >
           <meshStandardMaterial
             color={color || modelColors.initModelColor}
             roughness={0.5}
