@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/candle-constructor/static/css/main.195db0f5.css",
+    "main.js": "/candle-constructor/static/js/main.7568b1f8.js",
+    "static/js/787.95bd7881.chunk.js": "/candle-constructor/static/js/787.95bd7881.chunk.js",
+    "static/media/middleSet.png": "/candle-constructor/static/media/middleSet.75cb7660b8cf62b491e1.png",
+    "static/media/mastercard.svg": "/candle-constructor/static/media/mastercard.1d9bca6d8c1a0d454d31269fb333f2f1.svg",
+    "static/media/globe.svg": "/candle-constructor/static/media/globe.d78816570fdd0a9ddb1a34b8ed1a115c.svg",
+    "static/media/visa.svg": "/candle-constructor/static/media/visa.c506c414ed7ec1664e696ab7c68bd6f3.svg",
+    "index.html": "/candle-constructor/index.html",
+    "static/media/card.svg": "/candle-constructor/static/media/card.c94e33bb3c530a371129f22240beaf63.svg",
+    "static/media/stand.svg": "/candle-constructor/static/media/stand.81d8f7ee33415bfd9fa9c594122f290e.svg",
+    "main.195db0f5.css.map": "/candle-constructor/static/css/main.195db0f5.css.map",
+    "main.7568b1f8.js.map": "/candle-constructor/static/js/main.7568b1f8.js.map",
+    "787.95bd7881.chunk.js.map": "/candle-constructor/static/js/787.95bd7881.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.195db0f5.css",
+    "static/js/main.7568b1f8.js"
+  ]
+}
