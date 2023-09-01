@@ -12,22 +12,20 @@ function Accordion({ aboutProduct }) {
     <div className="candleConstructorAccordion">
       {aboutProduct.map((item, i, arr) => (
         <div
-          key={item.title}
+          key={item.id}
           className={`candleConstructorAccordionItem ${
             arr.length - i === 1 && "candleConstructorAccordionItemLast"
           } `}
         >
           <div className="candleConstructorAccordion">
             <div
-              key={item.id}
               className="candleConstructorAccordionHead"
               onClick={() => handleClick(item.id)}
             >
-              <div key={item.title} className="candleConstructorAccordionTitle">
+              <div className="candleConstructorAccordionTitle">
                 {item.title}
               </div>
               <div
-                key={item.title}
                 className={
                   opened === item.id
                     ? "candleConstructorAccordionArrowOpen"
