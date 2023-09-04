@@ -1,14 +1,14 @@
 import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import Model from "./models/Model";
 import "./Constructor.css";
-import Scale from "./camera-positioning/Scale";
+import Scale from "./modules/Scale";
 import ColorsPalette from "../colors-palette";
 import { paletteColors, paletteColorsByIdDictionary } from "../../constants";
 import { getRandomArrayItem } from "../../helpers";
-import ResetInitCameraPosition from "./camera-positioning/ResetInitCameraPosition";
-import ZoomOutCameraPosition from "./camera-positioning/ZoomOutCameraPosition";
+import ResetInitCameraPosition from "./modules/ResetInitCameraPosition";
+import ZoomOutCameraPosition from "./modules/ZoomOutCameraPosition";
+import candles from "./models";
 
 const Constructor = ({ selectedSet, saveUserColorsSet }) => {
   const [isInit, setIsInit] = React.useState(true);
@@ -76,19 +76,23 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
         <directionalLight position={[-2, -2, -2]} />
         <directionalLight position={[2, 2, 2]} />
 
-        <group scale={scale}>
-          {models.map((model) => (
-            <Model
-              key={model.id}
-              isSelected={model.id === selectedModel}
-              color={paletteColorsByIdDictionary[model.colorId]}
-              scale={model.scale}
-              position={model.position}
-              onClick={() => {
-                updateSelectedModel(model.id);
-              }}
-            />
-          ))}
+        <group scale={scale} rotation={[0.3, 0, 0]}>
+          {models.map((model) => {
+            const Model = candles[model.type];
+
+            return (
+              <Model
+                key={model.id}
+                isSelected={model.id === selectedModel}
+                color={paletteColorsByIdDictionary[model.colorId]}
+                scale={model.scale}
+                position={model.position}
+                onClick={() => {
+                  updateSelectedModel(model.id);
+                }}
+              />
+            );
+          })}
         </group>
 
         <OrbitControls enablePan={false} />
