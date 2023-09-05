@@ -6,8 +6,9 @@ import mastercardSvg from "../../assets/images/mastercard.svg";
 import globeSvg from "../../assets/images/globe.svg";
 import Accordion from "../accordion";
 import Modal from "../modal/Modal";
+import { getAvailableVideoTypesAndCodecs } from "../../helpers";
 
-const AboutSet = ({ isClosing, selectedSet, complete }) => {
+const AboutSet = ({ isClosing, selectedSet, complete, videoUrl }) => {
   const [videoSavedModal, setVideoSavedModal] = React.useState(false);
 
   const closeModal = () => setVideoSavedModal(false);
@@ -24,12 +25,16 @@ const AboutSet = ({ isClosing, selectedSet, complete }) => {
         <button className="aboutSetBuyBtn" onClick={complete}>
           ДОДАТИ В КОШИК
         </button>
-        <button
+        <a
           className="aboutSetShareBtn"
+          href={videoUrl}
+          download={`candlesSet.${
+            getAvailableVideoTypesAndCodecs()?.[0]?.extension
+          }`}
           onClick={() => setVideoSavedModal(true)}
         >
           Share to Instagram
-        </button>
+        </a>
 
         <div className="aboutSetBox">
           <h4 className="aboutSetYouWillGetTitle">В цьому сеті ти отримаєш:</h4>

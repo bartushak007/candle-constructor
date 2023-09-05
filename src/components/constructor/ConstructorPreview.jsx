@@ -9,10 +9,12 @@ import { paletteColorsByIdDictionary } from "../../constants";
 import ReactConfetti from "react-confetti";
 import candles from "./models";
 import RotateGroup from "./models/RotateGroup";
+import { record } from "../../helpers";
 
 const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
   const [isClosing, setIsClosing] = React.useState(false);
   const [scale, setScale] = React.useState(0.01);
+  const [videoUrl, setVideoUrl] = React.useState(false);
 
   const [resetState, setResetState] = React.useState(false);
 
@@ -24,13 +26,19 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
     }, 500);
   };
 
+  const canvasRef = React.useRef();
 
+  React.useEffect(() => {
+    setTimeout(() => {
+      record(canvasRef.current, 4000).then((url) => setVideoUrl(url))
+    }, 2000);;
+  }, []);
 
   return (
     <div className="constructorWrapper">
       <div className="constructorPreviewWrapperCanvasArea">
-        <ReactConfetti className="constructorPreviewWrapperConfetti" />
-        <Canvas className="constructorPreviewWrapperCanvas" dpr={[1, 4]}>
+        {/* <ReactConfetti className="constructorPreviewWrapperConfetti" /> */}
+        <Canvas className="constructorPreviewWrapperCanvas" dpr={[1, 4]} ref={canvasRef}>
           {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
           {resetState && !isClosing && (
             <ResetInitCameraPosition stopReset={() => setResetState(false)} />
@@ -40,7 +48,7 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
           <directionalLight position={[-2, -2, -2]} />
           <directionalLight position={[2, 2, 2]} />
 
-          <RotateGroup scale={scale * 1.5} >
+          <RotateGroup scale={scale * 1.5} rotate={scale >= 1}>
             {selectedSet.models.map((model) => {
               const Model = candles[model.type];
 
@@ -60,6 +68,7 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
         selectedSet={selectedSet}
         isClosing={isClosing}
         complete={complete}
+        videoUrl={videoUrl}
       />
     </div>
   );
