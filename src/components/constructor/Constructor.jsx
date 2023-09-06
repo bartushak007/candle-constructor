@@ -9,9 +9,12 @@ import { getRandomArrayItem } from "../../helpers";
 import ResetInitCameraPosition from "./modules/ResetInitCameraPosition";
 import ZoomOutCameraPosition from "./modules/ZoomOutCameraPosition";
 import candles from "./models";
+import AngleGroup from "./models/AngleGroup";
 
 const Constructor = ({ selectedSet, saveUserColorsSet }) => {
   const [isInit, setIsInit] = React.useState(true);
+  const [wasOrbitControlsChanged, setWasOrbitControlsChanged] =
+    React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
   const [scale, setScale] = React.useState(0.01);
 
@@ -64,19 +67,24 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
     setIsClosing(true);
   };
 
+  const cameraPositionRef = React.useRef(null);
+
   return (
     <div className="constructorWrapper">
       <Canvas className="constructorWrapperCanvas" dpr={[1, 2]}>
         {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
         {resetState && !isClosing && (
-          <ResetInitCameraPosition stopReset={() => setResetState(false)} />
+          <ResetInitCameraPosition
+            stopReset={() => setResetState(false)}
+            finishReset={() => setWasOrbitControlsChanged(false)}
+          />
         )}
         {isClosing && <ZoomOutCameraPosition />}
         <ambientLight intensity={0.9} />
         <directionalLight position={[-2, -2, -2]} />
         <directionalLight position={[2, 2, 2]} />
 
-        <group scale={scale} rotation={[0.3, 0, 0]}>
+        <AngleGroup scale={scale} isAngle={!wasOrbitControlsChanged}>
           {models.map((model) => {
             const Model = candles[model.type];
 
@@ -93,9 +101,20 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
               />
             );
           })}
-        </group>
+        </AngleGroup>
 
-        <OrbitControls enablePan={false} />
+        <OrbitControls
+          enablePan={false}
+          onStart={(e) => {
+            const { x, y, z } = e.target?.object?.position;
+            cameraPositionRef.current = `${x}${y}${z}`;
+          }}
+          onEnd={(e) => {
+            const { x, y, z } = e.target?.object?.position;
+            cameraPositionRef.current !== `${x}${y}${z}` &&
+              setWasOrbitControlsChanged(true);
+          }}
+        />
       </Canvas>
 
       <ColorsPalette

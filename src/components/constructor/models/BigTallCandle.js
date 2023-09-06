@@ -45,7 +45,6 @@ export default function BigTallCandle({
           receiveShadow
           geometry={node.geometry}
           key={i}
-          
           position={animatedPosition}
         >
           <meshStandardMaterial
