@@ -10,25 +10,32 @@ export const candleSets = [
     constructor: "bigConstructor",
     models: [
       {
-        type: "big-candle",
+        type: "big-short-candle",
         colorId: null,
-        position: [-1, -0.2, 0],
-        scale: 3,
+        position: [-1.5, -0.25, 0],
+        scale: 3 * 0.66,
         id: 0,
       },
       {
-        type: "big-candle",
+        type: "big-tall-candle",
         colorId: null,
-        position: [0, -0.2, 0],
-        scale: 3,
+        position: [-0.5, 0, 0],
+        scale: 3 * 1.05,
         id: 1,
       },
       {
-        type: "big-candle",
+        type: "thin-short-candle",
         colorId: null,
-        position: [1, -0.2, 0],
-        scale: 3,
+        position: [0.5, 0.8, 0],
+        scale: 3 * 0.35,
         id: 2,
+      },
+      {
+        type: "thin-tall-candle",
+        colorId: null,
+        position: [1.5, 1.38, 0],
+        scale: 3 * 0.22,
+        id: 3,
       },
     ],
     youWillGet: [
@@ -81,14 +88,14 @@ export const candleSets = [
     constructor: "middleConstructor",
     models: [
       {
-        type: "thin1",
+        type: "big-short-candle",
         colorId: null,
         position: [-0.8, -0.2, 0],
         scale: 0.8,
         id: 0,
       },
       {
-        type: "thin1",
+        type: "big-short-candle",
         colorId: null,
         position: [0.8, -0.2, 0],
         scale: 0.8,
@@ -144,7 +151,7 @@ export const candleSets = [
     constructor: "smallConstructor",
     models: [
       {
-        type: "thin1",
+        type: "big-short-candle",
         colorId: null,
         position: [0, -0.2, 0],
         scale: 1,

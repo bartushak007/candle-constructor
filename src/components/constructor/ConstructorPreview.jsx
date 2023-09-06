@@ -28,17 +28,28 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
 
   const canvasRef = React.useRef();
 
+  const recordRef = React.useRef(null);
+
   React.useEffect(() => {
-    setTimeout(() => {
-      record(canvasRef.current, 8000).then((url) => setVideoUrl(url))
-    }, 2000);;
+    if (recordRef) {
+      setTimeout(() => {
+        recordRef.current = record(canvasRef, 8000).then((url) =>
+          setVideoUrl(url)
+        );
+      }, 2000);
+    }
   }, []);
 
   return (
     <div className="constructorWrapper">
       <div className="constructorPreviewWrapperCanvasArea">
-        {/* <ReactConfetti className="constructorPreviewWrapperConfetti" /> */}
-        <Canvas className="constructorPreviewWrapperCanvas" dpr={[1, 2]} ref={canvasRef}>
+        <ReactConfetti className="constructorPreviewWrapperConfetti" />
+        <Canvas
+          className="constructorPreviewWrapperCanvas"
+          dpr={[1, 2]}
+          ref={canvasRef}
+          gl={{ preserveDrawingBuffer: true }}
+        >
           {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
           {resetState && !isClosing && (
             <ResetInitCameraPosition stopReset={() => setResetState(false)} />

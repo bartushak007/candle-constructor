@@ -4,9 +4,9 @@ import { useFrame } from "@react-three/fiber";
 const RotateGroup = ({ scale, children, rotate }) => {
   const groupRef = React.useRef(null);
 
-  useFrame(() => {
+  useFrame((state, delta) => {
     if (groupRef?.current?.rotation && rotate) {
-      groupRef.current.rotation.y += 0.01;
+      groupRef.current.rotation.y += delta;
     }
   });
 

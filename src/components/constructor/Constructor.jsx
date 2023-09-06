@@ -66,7 +66,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
 
   return (
     <div className="constructorWrapper">
-      <Canvas className="constructorWrapperCanvas" dpr={[1, 4]}>
+      <Canvas className="constructorWrapperCanvas" dpr={[1, 2]}>
         {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
         {resetState && !isClosing && (
           <ResetInitCameraPosition stopReset={() => setResetState(false)} />
