@@ -93,6 +93,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
 
   return (
     <div className="constructorWrapper">
+      <div style={{position: "fixed", zIndex: 9999999, width: '100%', height: '1px', backgroundColor: 'red', left: 0, top: '50.2%'}}></div>
       <Canvas className="constructorWrapperCanvas" dpr={[1, 2]}>
         {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
         {resetState && !isClosing && (
