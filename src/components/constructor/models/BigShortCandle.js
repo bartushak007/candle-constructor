@@ -33,7 +33,7 @@ export default function BigShortCandle({
 
   return (
     <group
-      position={position}
+      position={animatedPosition}
       {...props}
       dispose={null}
       scale={scale * 0.18}
@@ -45,8 +45,7 @@ export default function BigShortCandle({
           receiveShadow
           geometry={node.geometry}
           key={i}
-          
-          position={animatedPosition}
+          position={position}
         >
           <meshStandardMaterial
             color={color || modelColors.initModelColor}

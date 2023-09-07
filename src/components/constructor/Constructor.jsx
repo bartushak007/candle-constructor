@@ -69,15 +69,34 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
 
   const cameraPositionRef = React.useRef(null);
 
+  const alignOrbit = (e) => {
+    const { x, y, z } = e.target?.object?.position;
+    const differencePositions = [
+      x - cameraPositionRef.current.x,
+      y - cameraPositionRef.current.y,
+      z - cameraPositionRef.current.z,
+    ];
+    const compare = (v, a, b) => v > a || v < b;
+    if (
+      compare(differencePositions[0], 0.1, -0.1) ||
+      compare(differencePositions[2], 0.1, -0.1)
+    ) {
+      setWasOrbitControlsChanged(true);
+    }
+  };
+
+  React.useEffect(() => {
+    if (resetState && !isClosing && wasOrbitControlsChanged) {
+      setWasOrbitControlsChanged(false);
+    }
+  }, [resetState, isClosing, wasOrbitControlsChanged]);
+
   return (
     <div className="constructorWrapper">
       <Canvas className="constructorWrapperCanvas" dpr={[1, 2]}>
         {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
         {resetState && !isClosing && (
-          <ResetInitCameraPosition
-            stopReset={() => setResetState(false)}
-            finishReset={() => setWasOrbitControlsChanged(false)}
-          />
+          <ResetInitCameraPosition stopReset={() => setResetState(false)} />
         )}
         {isClosing && <ZoomOutCameraPosition />}
         <ambientLight intensity={0.9} />
@@ -106,14 +125,9 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
         <OrbitControls
           enablePan={false}
           onStart={(e) => {
-            const { x, y, z } = e.target?.object?.position;
-            cameraPositionRef.current = `${x}${y}${z}`;
+            cameraPositionRef.current = { ...e.target?.object?.position };
           }}
-          onEnd={(e) => {
-            const { x, y, z } = e.target?.object?.position;
-            cameraPositionRef.current !== `${x}${y}${z}` &&
-              setWasOrbitControlsChanged(true);
-          }}
+          onEnd={alignOrbit}
         />
       </Canvas>
 

@@ -1,7 +1,6 @@
 import { useFrame } from "@react-three/fiber";
-import { useEffect } from "react";
 
-const ResetInitCameraPosition = ({ stopReset, finishReset }) => {
+const ResetInitCameraPosition = ({ stopReset }) => {
   useFrame(({ camera }) => {
     const getPosition = (pX, compare = 0) => {
       const roundX = Math.round(pX * 10) / 10;
@@ -30,14 +29,6 @@ const ResetInitCameraPosition = ({ stopReset, finishReset }) => {
 
     camera.position.set(x, y, z);
   });
-
-  useEffect(
-    () => () => {
-      finishReset && finishReset();
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  );
 
   return null;
 };
