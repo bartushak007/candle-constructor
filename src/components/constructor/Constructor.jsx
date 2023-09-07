@@ -5,7 +5,7 @@ import "./Constructor.css";
 import Scale from "./modules/Scale";
 import ColorsPalette from "../colors-palette";
 import { paletteColors, paletteColorsByIdDictionary } from "../../constants";
-import { getRandomArrayItem } from "../../helpers";
+import { getRandomArrayItem, isIphone } from "../../helpers";
 import ResetInitCameraPosition from "./modules/ResetInitCameraPosition";
 import ZoomOutCameraPosition from "./modules/ZoomOutCameraPosition";
 import candles from "./models";
@@ -93,7 +93,10 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
 
   return (
     <div className="constructorWrapper">
-      <Canvas className="constructorWrapperCanvas" dpr={[1, 2]}>
+      <Canvas
+        className="constructorWrapperCanvas"
+        dpr={[1, isIphone() ? 3 : 2]}
+      >
         {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
         {resetState && !isClosing && (
           <ResetInitCameraPosition stopReset={() => setResetState(false)} />

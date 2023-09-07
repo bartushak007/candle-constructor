@@ -49,8 +49,6 @@ export function record(canvas, time = 4000) {
     //   alert(screenShots.length);
     // }, 1000);
 
-
-
     const mimeTypes = getAvailableVideoTypesAndCodecs();
 
     if (!mimeTypes.length) {
@@ -100,4 +98,12 @@ export function getAvailableVideoTypesAndCodecs() {
     type: mediaType[0],
     extension: mediaType[2],
   }));
+}
+
+export function isIphone() {
+  return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+export function isAndroid() {
+  return /Android/i.test(navigator.userAgent);
 }

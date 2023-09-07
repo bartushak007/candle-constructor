@@ -9,7 +9,7 @@ import { paletteColorsByIdDictionary } from "../../constants";
 import ReactConfetti from "react-confetti";
 import candles from "./models";
 import RotateGroup from "./modules/RotateGroup";
-import { record } from "../../helpers";
+import { isIphone, record } from "../../helpers";
 
 const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
   const [isClosing, setIsClosing] = React.useState(false);
@@ -33,9 +33,9 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
   React.useEffect(() => {
     if (recordRef) {
       setTimeout(() => {
-        recordRef.current = record(canvasRef, 8000).then((url) =>
-          setVideoUrl(url)
-        );
+        // recordRef.current = record(canvasRef, 8000).then((url) =>
+        //   setVideoUrl(url)
+        // );
       }, 2000);
     }
   }, []);
@@ -43,10 +43,12 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
   return (
     <div className="constructorWrapper">
       <div className="constructorPreviewWrapperCanvasArea">
-        <ReactConfetti className="constructorPreviewWrapperConfetti" />
+        {scale >= 1 && (
+          <ReactConfetti className="constructorPreviewWrapperConfetti" />
+        )}
         <Canvas
           className="constructorPreviewWrapperCanvas"
-          dpr={[1, 2]}
+          dpr={[1, isIphone() ? 3 : 1.5]}
           ref={canvasRef}
           gl={{ preserveDrawingBuffer: true }}
         >

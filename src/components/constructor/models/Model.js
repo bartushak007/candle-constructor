@@ -16,7 +16,7 @@ export default function Model({
 }) {
   const originPosition = React.useMemo(() => [
     position[0],
-    position[1] + yPosition,
+    position[1] + yPosition - 0.4,
     position[2],
   ]);
 
