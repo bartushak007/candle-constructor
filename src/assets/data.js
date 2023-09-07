@@ -8,6 +8,7 @@ export const candleSets = [
     decoratedText: "NEW",
     coverSrc: middleSetCover,
     constructor: "bigConstructor",
+    price: '$50',
     models: [
       {
         type: "big-short-candle",
@@ -140,6 +141,7 @@ export const candleSets = [
   {
     id: 1,
     name: "MIDDLE SET",
+    price: '$35',
     coverSrc: middleSetCover,
     constructor: "middleConstructor",
     models: [
@@ -273,6 +275,7 @@ export const candleSets = [
   {
     id: 2,
     name: "SMALL SET",
+    price: '$25',
     coverSrc: middleSetCover,
     constructor: "smallConstructor",
     models: [

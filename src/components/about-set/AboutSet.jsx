@@ -28,7 +28,7 @@ const AboutSet = ({ isClosing, selectedSet, complete, videoUrl }) => {
       <div className={`aboutSet ${isClosing && "aboutSetClosing"}`}>
         <div className="aboutSetHead">
           <h3 className="aboutSetTitle">Твій кастомний сет:</h3>
-          <h3 className="aboutSetPrice">$50</h3>
+          <h3 className="aboutSetPrice">{selectedSet.price}</h3>
         </div>
 
         <button className="aboutSetBuyBtn" onClick={complete}>
