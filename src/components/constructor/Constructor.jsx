@@ -42,12 +42,19 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
   };
 
   const updateRandomlyAllModels = () => {
-    setModels((models) =>
-      models.map((model) => ({
+    let colors = [...paletteColors];
+    const newModels = models.map((model) => {
+      const colorId = getRandomArrayItem(colors)?.id;
+      colors = colors.length
+        ? colors.filter((c) => c.id !== colorId)
+        : { ...paletteColors };
+      return {
         ...model,
-        colorId: getRandomArrayItem(paletteColors).id,
-      }))
-    );
+        colorId: colorId,
+      };
+    });
+
+    setModels(newModels);
   };
 
   const updateAllModelsWithColor = (colorId) => {
