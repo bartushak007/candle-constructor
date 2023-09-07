@@ -74,7 +74,7 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
           style={{ fillStyle: "#87CEEB" }}
         >
           <color attach="background" args={["#a8adb3"]} />
-          <Confetti />
+          {!isClosing && <Confetti />}
           {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
           {resetState && !isClosing && (
             <ResetInitCameraPosition stopReset={() => setResetState(false)} />
