@@ -1,5 +1,5 @@
 import React from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import "./Constructor.css";
 import Scale from "./modules/Scale";
 import ResetInitCameraPosition from "./modules/ResetInitCameraPosition";
@@ -8,7 +8,7 @@ import AboutSet from "../about-set/AboutSet";
 import { paletteColorsByIdDictionary } from "../../constants";
 import ReactConfetti from "react-confetti";
 import candles from "./models";
-import RotateGroup from "./models/RotateGroup";
+import RotateGroup from "./modules/RotateGroup";
 import { record } from "../../helpers";
 
 const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {

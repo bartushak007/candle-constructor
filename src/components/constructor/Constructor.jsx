@@ -9,7 +9,7 @@ import { getRandomArrayItem } from "../../helpers";
 import ResetInitCameraPosition from "./modules/ResetInitCameraPosition";
 import ZoomOutCameraPosition from "./modules/ZoomOutCameraPosition";
 import candles from "./models";
-import AngleGroup from "./models/AngleGroup";
+import AngleGroup from "./modules/AngleGroup";
 
 const Constructor = ({ selectedSet, saveUserColorsSet }) => {
   const [isInit, setIsInit] = React.useState(true);
