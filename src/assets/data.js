@@ -26,14 +26,14 @@ export const candleSets = [
       {
         type: "thin-short-candle",
         colorId: null,
-        position: [0.5, 0.8, 0],
+        position: [0.5, 0.7, 0],
         scale: 3 * 0.35,
         id: 2,
       },
       {
         type: "thin-tall-candle",
         colorId: null,
-        position: [1.5, 1.38, 0],
+        position: [1.5, 1.36, 0],
         scale: 3 * 0.22,
         id: 3,
       },
