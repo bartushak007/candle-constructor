@@ -14,13 +14,13 @@ export default function Model({
   yPosition = 0,
   ...props
 }) {
-  const originPOsition = React.useMemo(() => [
+  const originPosition = React.useMemo(() => [
     position[0],
     position[1] + yPosition,
     position[2],
   ]);
 
-  const [animatedPosition, setAnimatedPosition] = React.useState(originPOsition);
+  const [animatedPosition, setAnimatedPosition] = React.useState(originPosition);
   const { nodes } = useGLTF(
     process.env.PUBLIC_URL
       ? `${window.location.origin}${process.env.PUBLIC_URL}/${model}`
@@ -31,15 +31,15 @@ export default function Model({
     [nodes]
   );
 
-  const positionYOrigin = originPOsition[1];
+  const positionYOrigin = originPosition[1];
   const selectedPositionY = positionYOrigin + raiseOn;
 
   useFrame(() => {
     if (isSelected && animatedPosition[1] < selectedPositionY) {
-      setAnimatedPosition(([x, y, z]) => [x, y + 0.05, z]);
+      setAnimatedPosition(([x, y, z]) => [x, y + 0.025, z]);
     }
     if (!isSelected && animatedPosition[1] > positionYOrigin) {
-      setAnimatedPosition(([x, y, z]) => [x, y - 0.05, z]);
+      setAnimatedPosition(([x, y, z]) => [x, y - 0.025, z]);
     }
   });
 
@@ -57,7 +57,7 @@ export default function Model({
           receiveShadow
           geometry={node.geometry}
           key={i}
-          position={originPOsition}
+          position={originPosition}
         >
           <meshStandardMaterial
             color={color || modelColors.initModelColor}
