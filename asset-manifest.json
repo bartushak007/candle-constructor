@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/candle-constructor/static/css/main.b06e3bf9.css",
+    "main.css": "/candle-constructor/static/css/main.2a9a27ff.css",
     "main.js": "/candle-constructor/static/js/main.a5a4681f.js",
     "static/js/787.95bd7881.chunk.js": "/candle-constructor/static/js/787.95bd7881.chunk.js",
     "static/media/middleSet.png": "/candle-constructor/static/media/middleSet.75cb7660b8cf62b491e1.png",
@@ -10,12 +10,12 @@
     "index.html": "/candle-constructor/index.html",
     "static/media/card.svg": "/candle-constructor/static/media/card.c94e33bb3c530a371129f22240beaf63.svg",
     "static/media/stand.svg": "/candle-constructor/static/media/stand.81d8f7ee33415bfd9fa9c594122f290e.svg",
-    "main.b06e3bf9.css.map": "/candle-constructor/static/css/main.b06e3bf9.css.map",
+    "main.2a9a27ff.css.map": "/candle-constructor/static/css/main.2a9a27ff.css.map",
     "main.a5a4681f.js.map": "/candle-constructor/static/js/main.a5a4681f.js.map",
     "787.95bd7881.chunk.js.map": "/candle-constructor/static/js/787.95bd7881.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b06e3bf9.css",
+    "static/css/main.2a9a27ff.css",
     "static/js/main.a5a4681f.js"
   ]
 }
