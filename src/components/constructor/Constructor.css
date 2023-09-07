@@ -18,14 +18,6 @@
     aspect-ratio: 338 / 314;
 }
 
-.constructorPreviewWrapperConfetti {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 .constructorPreviewWrapperCanvas {
     position: relative !important;
     width: 100%;

@@ -6,10 +6,10 @@ import ResetInitCameraPosition from "./modules/ResetInitCameraPosition";
 import ZoomOutCameraPosition from "./modules/ZoomOutCameraPosition";
 import AboutSet from "../about-set/AboutSet";
 import { paletteColorsByIdDictionary } from "../../constants";
-import ReactConfetti from "react-confetti";
 import candles from "./models";
 import RotateGroup from "./modules/RotateGroup";
 import { isIphone, record } from "../../helpers";
+import Confetti from "./modules/Confetti";
 
 const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
   const [isClosing, setIsClosing] = React.useState(false);
@@ -33,9 +33,9 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
   React.useEffect(() => {
     if (recordRef) {
       setTimeout(() => {
-        // recordRef.current = record(canvasRef, 8000).then((url) =>
-        //   setVideoUrl(url)
-        // );
+        recordRef.current = record(canvasRef, 8000).then((url) =>
+          setVideoUrl(url)
+        );
       }, 2000);
     }
   }, []);
@@ -43,15 +43,15 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
   return (
     <div className="constructorWrapper">
       <div className="constructorPreviewWrapperCanvasArea">
-        {scale >= 1 && (
-          <ReactConfetti className="constructorPreviewWrapperConfetti" />
-        )}
         <Canvas
           className="constructorPreviewWrapperCanvas"
           dpr={[1, isIphone() ? 3 : 1.5]}
           ref={canvasRef}
           gl={{ preserveDrawingBuffer: true }}
+          style={{ fillStyle: "#87CEEB" }}
         >
+          <color attach="background" args={["#a8adb3"]} />
+          <Confetti />
           {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
           {resetState && !isClosing && (
             <ResetInitCameraPosition stopReset={() => setResetState(false)} />

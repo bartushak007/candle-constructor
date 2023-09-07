@@ -11,44 +11,6 @@ export function record(canvas, time = 4000) {
   const recordedChunks = [];
 
   return new Promise(function (res, rej) {
-    // function makeScreenshot() {
-    //   function base64ToBlob(base64String, contentType) {
-    //     const base64WithoutPrefix = base64String.replace(
-    //       /^data:[^;]+;base64,/,
-    //       ""
-    //     );
-
-    //     const binaryData = atob(base64WithoutPrefix);
-
-    //     const array = new Uint8Array(binaryData.length);
-
-    //     for (let i = 0; i < binaryData.length; i++) {
-    //       array[i] = binaryData.charCodeAt(i);
-    //     }
-
-    //     return new Blob([array], { type: contentType });
-    //   }
-
-    //   const base64String = canvas.current.toDataURL("image/png");
-
-    //   const blob = base64ToBlob(base64String, "image/png");
-
-    //   return URL.createObjectURL(blob);
-    // }
-
-    // // res(makeScreenshot());
-
-    // const screenShots = [];
-
-    // const animFrame = setInterval(() => {
-    //   screenShots.push(canvas.current.toDataURL("image/png"));
-    // }, 1000 / 40);
-
-    // setTimeout(() => {
-    //   clearInterval(animFrame);
-    //   alert(screenShots.length);
-    // }, 1000);
-
     const mimeTypes = getAvailableVideoTypesAndCodecs();
 
     if (!mimeTypes.length) {
@@ -104,6 +66,7 @@ export function isIphone() {
   return /iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
 
-export function isAndroid() {
-  return /Android/i.test(navigator.userAgent);
+export const isAndroid = () => {
+  const u = navigator.userAgent
+  return !!u.match(/Android/i)
 }
