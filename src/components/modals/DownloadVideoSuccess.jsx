@@ -41,10 +41,8 @@ const Modal = ({ isVisible, closeModal }) => {
             />
           </svg>
         </div>
-        <h3 className="candlesModalTitle">
-          Відео з вашим сетом збережено в галерею
-        </h3>
-        <button className="aboutSetBuyBtn" onClick={closeModalWithAnimation}>
+        <h3 className="candlesModalTitle">Відео з вашим сетом збережено</h3>
+        <button className="candlesModalBtn" onClick={closeModalWithAnimation}>
           OK
         </button>
       </div>

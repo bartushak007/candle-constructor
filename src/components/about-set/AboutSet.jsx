@@ -5,17 +5,26 @@ import visaSvg from "../../assets/images/visa.svg";
 import mastercardSvg from "../../assets/images/mastercard.svg";
 import globeSvg from "../../assets/images/globe.svg";
 import Accordion from "../accordion";
-import Modal from "../modal/Modal";
+import DownloadVideoSuccess from "../modals/DownloadVideoSuccess";
+import DownloadVideo from "../modals/DownloadVideo";
 import { getAvailableVideoTypesAndCodecs } from "../../helpers";
 
 const AboutSet = ({ isClosing, selectedSet, complete, videoUrl }) => {
   const [videoSavedModal, setVideoSavedModal] = React.useState(false);
-
-  const closeModal = () => setVideoSavedModal(false);
+  const [videoDownloadsModal, setVideoDownloadsModal] = React.useState(false);
 
   return (
     <>
-      <Modal isVisible={videoSavedModal} closeModal={closeModal} />
+      <DownloadVideoSuccess
+        isVisible={videoSavedModal}
+        closeModal={() => setVideoSavedModal(false)}
+        videoUrl={videoUrl}
+      />
+      <DownloadVideo
+        isVisible={videoDownloadsModal}
+        closeModal={() => setVideoDownloadsModal(false)}
+        videoUrl={videoUrl}
+      />
       <div className={`aboutSet ${isClosing && "aboutSetClosing"}`}>
         <div className="aboutSetHead">
           <h3 className="aboutSetTitle">Твій кастомний сет:</h3>
@@ -25,16 +34,25 @@ const AboutSet = ({ isClosing, selectedSet, complete, videoUrl }) => {
         <button className="aboutSetBuyBtn" onClick={complete}>
           ДОДАТИ В КОШИК
         </button>
-        <a
-          className="aboutSetShareBtn"
-          href={videoUrl}
-          download={`candlesSet.${
-            getAvailableVideoTypesAndCodecs()?.[0]?.extension
-          }`}
-          onClick={() => setVideoSavedModal(true)}
-        >
-          Share to Instagram
-        </a>
+        {!videoUrl.success ? (
+          <button
+            className="aboutSetShareBtn"
+            onClick={() => setVideoDownloadsModal(true)}
+          >
+            Share to Instagram
+          </button>
+        ) : (
+          <a
+            className="aboutSetShareBtn"
+            href={videoUrl.data}
+            download={`candlesSet.${
+              getAvailableVideoTypesAndCodecs()?.[0]?.extension
+            }`}
+            onClick={() => setVideoSavedModal(true)}
+          >
+            Share to Instagram
+          </a>
+        )}
 
         <div className="aboutSetBox">
           <h4 className="aboutSetYouWillGetTitle">В цьому сеті ти отримаєш:</h4>

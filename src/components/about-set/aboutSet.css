@@ -79,6 +79,7 @@
   outline: 0;
   text-transform: uppercase;
   transition: 0.3s;
+  text-decoration: none;
 }
 .aboutSetBuyBtn:hover {
   opacity: 0.8;
@@ -88,6 +89,12 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   background: rgba(255, 255, 255, 0.2);
   color: #000;
+}
+.aboutSetBuyBtn:disabled {
+  background: #aeaeae;
+  color: #e4e4e4;
+  border: 1px solid #aeaeae;
+  opacity: 1;
 }
 
 .aboutSetShareBtn {
@@ -153,7 +160,7 @@
   margin-top: 17px;
 }
 .aboutSetPayWith:first-of-type {
-    margin-top: 0;
+  margin-top: 0;
 }
 .aboutSetPayWith * {
   margin-right: 10px;

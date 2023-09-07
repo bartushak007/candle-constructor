@@ -16,7 +16,7 @@ export function record(canvas, time = 4000) {
     if (!mimeTypes.length) {
       rej("Browser has unsupported video format");
     }
-    const stream = canvas.current.captureStream(25 /*fps*/);
+    const stream = canvas.current.captureStream(isAndroid() ? 30 : 50 /*fps*/);
     const mediaRecorder = new MediaRecorder(stream, {
       mimeType: mimeTypes[0].mediaType,
     });
@@ -67,6 +67,6 @@ export function isIphone() {
 }
 
 export const isAndroid = () => {
-  const u = navigator.userAgent
-  return !!u.match(/Android/i)
-}
+  const u = navigator.userAgent;
+  return !!u.match(/Android/i);
+};

@@ -14,7 +14,12 @@ import Confetti from "./modules/Confetti";
 const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
   const [isClosing, setIsClosing] = React.useState(false);
   const [scale, setScale] = React.useState(0.01);
-  const [videoUrl, setVideoUrl] = React.useState(false);
+  const [videoUrl, setVideoUrl] = React.useState({
+    data: null,
+    success: false,
+    pending: false,
+    failed: false,
+  });
 
   const [resetState, setResetState] = React.useState(false);
 
@@ -31,14 +36,32 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
   const recordRef = React.useRef(null);
 
   React.useEffect(() => {
-    if (recordRef) {
-      setTimeout(() => {
-        recordRef.current = record(canvasRef, 8000).then((url) =>
-          setVideoUrl(url)
-        );
-      }, 2000);
+    if (!recordRef.current && scale >= 1) {
+      setVideoUrl({
+        data: null,
+        success: false,
+        pending: true,
+        failed: false,
+      });
+      recordRef.current = record(canvasRef, 8000)
+        .then((url) =>
+          setVideoUrl({
+            data: url,
+            success: true,
+            pending: false,
+            failed: false,
+          })
+        )
+        .catch(() => {
+          setVideoUrl({
+            data: null,
+            success: false,
+            pending: false,
+            failed: true,
+          });
+        });
     }
-  }, []);
+  }, [scale]);
 
   return (
     <div className="constructorWrapper">
