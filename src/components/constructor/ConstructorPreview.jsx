@@ -72,6 +72,7 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
           ref={canvasRef}
           gl={{ preserveDrawingBuffer: true }}
           style={{ fillStyle: "#87CEEB" }}
+          shadows
         >
           <color attach="background" args={["#a8adb3"]} />
           {!isClosing && <Confetti />}
@@ -81,8 +82,8 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
           )}
           {isClosing && <ZoomOutCameraPosition />}
           <ambientLight intensity={0.9} />
-          <directionalLight position={[-2, -2, -2]} />
-          <directionalLight position={[2, 2, 2]} />
+          {/* <directionalLight position={[-2, -2, -2]} /> */}
+          <directionalLight position={[1, 3, 4]} castShadow  />
 
           <RotateGroup scale={scale * 1.5} rotate={scale >= 1}>
             {selectedSet.models.map((model) => {
