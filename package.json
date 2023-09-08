@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://bartushak007.github.io/candle-constructor",
   "dependencies": {
+    "@react-spring/core": "^9.7.3",
+    "@react-spring/three": "^9.7.3",
     "@react-three/drei": "^9.58.4",
     "@react-three/fiber": "^8.12.0",
     "@testing-library/jest-dom": "^5.17.0",

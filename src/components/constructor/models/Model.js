@@ -1,7 +1,8 @@
 import React from "react";
 import { useGLTF } from "@react-three/drei";
 import { modelColors } from "../../../constants";
-import { useFrame } from "@react-three/fiber";
+import { a } from "@react-spring/three";
+import { useSpring } from "@react-spring/core";
 
 export default function Model({
   scale = 1,
@@ -14,13 +15,11 @@ export default function Model({
   yPosition = 0,
   ...props
 }) {
-  const originPosition = React.useMemo(() => [
-    position[0],
-    position[1] + yPosition - 0.4,
-    position[2],
-  ]);
+  const originPosition = React.useMemo(
+    () => [position[0], position[1] + yPosition - 0.4, position[2]],
+    [position, yPosition]
+  );
 
-  const [animatedPosition, setAnimatedPosition] = React.useState(originPosition);
   const { nodes } = useGLTF(
     process.env.PUBLIC_URL
       ? `${window.location.origin}${process.env.PUBLIC_URL}/${model}`
@@ -31,31 +30,19 @@ export default function Model({
     [nodes]
   );
 
-  const positionYOrigin = originPosition[1];
-  const selectedPositionY = positionYOrigin + raiseOn;
+  const selectedPositionY = originPosition[1] + raiseOn;
 
-  useFrame(() => {
-    if (isSelected && animatedPosition[1] < selectedPositionY) {
-      setAnimatedPosition(([x, y, z]) => [x, y + 0.025, z]);
-    }
-    if (!isSelected && animatedPosition[1] > positionYOrigin) {
-      setAnimatedPosition(([x, y, z]) => {
-        const nextYPosition = y - 0.025;
-
-        return [
-          x,
-          positionYOrigin > nextYPosition ? positionYOrigin : nextYPosition,
-          z,
-        ];
-      });
-    }
+  const { positionY } = useSpring({
+    positionY: isSelected ? selectedPositionY : originPosition[1],
+    config: { mass: 5, tension: 400, friction: 50, precision: 0.0001 },
   });
 
   return (
-    <group
-      position={animatedPosition}
+    <a.group
       {...props}
-      dispose={null}
+      position-x={originPosition[0]}
+      position-y={positionY}
+      position-z={originPosition[2]}
       scale={scale * 0.18}
       onClick={onClick}
     >
@@ -75,6 +62,6 @@ export default function Model({
           />
         </mesh>
       ))}
-    </group>
+    </a.group>
   );
 }
