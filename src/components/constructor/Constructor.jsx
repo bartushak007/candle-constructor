@@ -31,6 +31,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
   const updateSelectedModel = (id) => {
     isInit && setIsInit(false);
     setSelectedModel(id);
+    currentSelectedModelRef.current = id;
   };
 
   const updateColorOfModel = (colorId) => {
@@ -98,11 +99,26 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
     }
   }, [resetState, isClosing, wasOrbitControlsChanged]);
 
+  const lastSelectedModelRef = React.useRef(null);
+  const currentSelectedModelRef = React.useRef(null);
+  const resetSelectedModel = () => {
+    const currentModel = currentSelectedModelRef.current;
+    const lastModel = lastSelectedModelRef.current;
+
+    lastSelectedModelRef.current = currentModel;
+
+    if (currentModel === lastModel) {
+      updateSelectedModel(null);
+      lastSelectedModelRef.current = null;
+    }
+  };
+
   return (
     <div className="constructorWrapper">
       <Canvas
         className="constructorWrapperCanvas"
         dpr={[1, isIphone() ? 3 : 2]}
+        onClick={resetSelectedModel}
       >
         {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
         {resetState && !isClosing && (
