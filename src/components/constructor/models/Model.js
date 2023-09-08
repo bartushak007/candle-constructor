@@ -34,7 +34,7 @@ export default function Model({
 
   const { positionY } = useSpring({
     positionY: isSelected ? selectedPositionY : originPosition[1],
-    config: { mass: 5, tension: 400, friction: 50, precision: 0.0001 },
+    config: { mass: 2, tension: 300, friction: 25, precision: 0.0001 },
   });
 
   return (
