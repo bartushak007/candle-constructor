@@ -107,15 +107,20 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
 
   const lastSelectedModelRef = React.useRef(null);
   const currentSelectedModelRef = React.useRef(null);
+  const swipeStartTime = React.useRef(null);
   const resetSelectedModel = () => {
     const currentModel = currentSelectedModelRef.current;
     const lastModel = lastSelectedModelRef.current;
 
     lastSelectedModelRef.current = currentModel;
 
-    if (currentModel === lastModel) {
+    if (
+      currentModel === lastModel &&
+      new Date().getTime() - swipeStartTime.current < 120
+    ) {
       updateSelectedModel(null);
       lastSelectedModelRef.current = null;
+      swipeStartTime.current = null;
     }
   };
 
@@ -126,6 +131,9 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
         dpr={[1, isAndroid() ? 1.5 : 3]}
         onClick={resetSelectedModel}
         shadows
+        onMouseDown={() => {
+          swipeStartTime.current = new Date().getTime();
+        }}
       >
         {resetState && !isClosing && (
           <ResetInitCameraPosition stopReset={() => setResetState(false)} />
