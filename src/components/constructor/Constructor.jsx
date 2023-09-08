@@ -119,6 +119,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
         className="constructorWrapperCanvas"
         dpr={[1, isIphone() ? 3 : 2]}
         onClick={resetSelectedModel}
+        shadows
       >
         {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
         {resetState && !isClosing && (
@@ -126,8 +127,8 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
         )}
         {isClosing && <ZoomOutCameraPosition />}
         <ambientLight intensity={0.9} />
-        <directionalLight position={[-2, -2, -2]} />
-        <directionalLight position={[2, 2, 2]} />
+        {/* <directionalLight position={[-2, -2, -2]} castShadow /> */}
+        <directionalLight position={[1, 3, 4]} castShadow />
 
         <AngleGroup scale={scale} isAngle={!wasOrbitControlsChanged}>
           {models.map((model) => {

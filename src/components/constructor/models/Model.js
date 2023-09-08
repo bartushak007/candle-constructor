@@ -39,7 +39,15 @@ export default function Model({
       setAnimatedPosition(([x, y, z]) => [x, y + 0.025, z]);
     }
     if (!isSelected && animatedPosition[1] > positionYOrigin) {
-      setAnimatedPosition(([x, y, z]) => [x, y - 0.025, z]);
+      setAnimatedPosition(([x, y, z]) => {
+        const nextYPosition = y - 0.025;
+
+        return [
+          x,
+          positionYOrigin > nextYPosition ? positionYOrigin : nextYPosition,
+          z,
+        ];
+      });
     }
   });
 
