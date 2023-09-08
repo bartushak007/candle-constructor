@@ -2,21 +2,21 @@ import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import "./Constructor.css";
-import Scale from "./modules/Scale";
 import ColorsPalette from "../colors-palette";
 import { paletteColors, paletteColorsByIdDictionary } from "../../constants";
-import { getRandomArrayItem, isIphone } from "../../helpers";
+import { getRandomArrayItem, isAndroid } from "../../helpers";
 import ResetInitCameraPosition from "./modules/ResetInitCameraPosition";
 import ZoomOutCameraPosition from "./modules/ZoomOutCameraPosition";
 import candles from "./models";
 import AngleGroup from "./modules/AngleGroup";
+import { useSpring } from "@react-spring/core";
+import useInit from "../../hooks/useInit";
 
 const Constructor = ({ selectedSet, saveUserColorsSet }) => {
   const [isInit, setIsInit] = React.useState(true);
   const [wasOrbitControlsChanged, setWasOrbitControlsChanged] =
     React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
-  const [scale, setScale] = React.useState(0.01);
 
   const [selectedModel, setSelectedModel] = React.useState(null);
   const [models, setModels] = React.useState(selectedSet.models);
@@ -41,6 +41,12 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
       )
     );
   };
+
+  const init = useInit();
+  const { scale } = useSpring({
+    scale: init ? 0 : 1,
+    config: { duration: 800 },
+  });
 
   const updateRandomlyAllModels = () => {
     let colors = [...paletteColors];
@@ -117,17 +123,16 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
     <div className="constructorWrapper">
       <Canvas
         className="constructorWrapperCanvas"
-        dpr={[1, isIphone() ? 3 : 2]}
+        dpr={[1, isAndroid() ? 1.5 : 3]}
         onClick={resetSelectedModel}
         shadows
       >
-        {scale !== 1 && <Scale setScale={setScale} scale={scale} />}
         {resetState && !isClosing && (
           <ResetInitCameraPosition stopReset={() => setResetState(false)} />
         )}
         {isClosing && <ZoomOutCameraPosition />}
         <ambientLight intensity={0.9} />
-        <directionalLight position={[-2, -2, -2]} intensity={0.4}/>
+        <directionalLight position={[-2, -2, -2]} intensity={0.4} />
         <directionalLight position={[1, 3, 4]} castShadow />
 
         <AngleGroup scale={scale} isAngle={!wasOrbitControlsChanged}>

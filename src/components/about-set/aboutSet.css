@@ -9,11 +9,13 @@
 
   animation-duration: 1s;
   animation-name: slideAboutSetFromBottom;
+  transition-timing-function: ease-out;
 }
 
 .aboutSetClosing {
   animation-duration: 1s;
   animation-name: slideAboutSetToBottom;
+  transition-timing-function: ease-out;
 }
 
 @keyframes slideAboutSetFromBottom {

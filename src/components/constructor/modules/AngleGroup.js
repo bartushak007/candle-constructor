@@ -1,5 +1,6 @@
 import { useFrame } from "@react-three/fiber";
 import React from "react";
+import { a } from "@react-spring/three";
 
 const AngleGroup = ({ scale, children, isAngle }) => {
   const [angle, setAngle] = React.useState(0.3);
@@ -14,9 +15,9 @@ const AngleGroup = ({ scale, children, isAngle }) => {
   });
 
   return (
-    <group scale={scale} rotation={[angle, 0, 0]}>
+    <a.group scale={scale} rotation={[angle, 0, 0]}>
       {children}
-    </group>
+    </a.group>
   );
 };
 

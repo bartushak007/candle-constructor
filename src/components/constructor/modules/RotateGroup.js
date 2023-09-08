@@ -1,5 +1,6 @@
 import React from "react";
 import { useFrame } from "@react-three/fiber";
+import { a } from "@react-spring/three";
 
 const RotateGroup = ({ scale, children, rotate }) => {
   const groupRef = React.useRef(null);
@@ -11,9 +12,9 @@ const RotateGroup = ({ scale, children, rotate }) => {
   });
 
   return (
-    <group scale={scale} rotation={[0.3, 0, 0]}>
+    <a.group scale={scale} rotation={[0.3, 0, 0]}>
       <group ref={groupRef}>{children}</group>
-    </group>
+    </a.group>
   );
 };
 
