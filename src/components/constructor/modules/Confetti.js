@@ -51,8 +51,6 @@ function Bubbles() {
     <Instances
       limit={particles.length}
       ref={ref}
-      castShadow
-      receiveShadow
       scale={scale}
     >
       <circleGeometry args={[0.45, 20, 20]} />
