@@ -56,9 +56,9 @@ export default function Model({
         >
           <meshStandardMaterial
             color={color || modelColors.initModelColor}
-            roughness={0.5}
+            roughness={0.6}
             transparent={true}
-            opacity={!color ? 0.5 : 1}
+            opacity={!color ? 0.7 : 1}
           />
         </mesh>
       ))}
