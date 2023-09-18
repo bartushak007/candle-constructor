@@ -8,9 +8,9 @@ import { paletteColorsByIdDictionary } from "../../constants";
 import candles from "./models";
 import RotateGroup from "./modules/RotateGroup";
 import { isAndroid, record } from "../../helpers";
-import Confetti from "./modules/Confetti";
 import { useSpring } from "@react-spring/core";
 import useInit from "../../hooks/useInit";
+import ExplosionConfetti from "./modules/ExplosionConfetti";
 
 const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
   const [isClosing, setIsClosing] = React.useState(false);
@@ -83,7 +83,12 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
           shadows
         >
           <color attach="background" args={["#a8adb3"]} />
-          {!isClosing && <Confetti />}
+          {!isClosing && (
+            <ExplosionConfetti
+              isExploding
+              // colors={["#DC143C", "#00BFFF", "#FFD700"]}
+            />
+          )}
           {resetState && !isClosing && (
             <ResetInitCameraPosition stopReset={() => setResetState(false)} />
           )}
