@@ -1,27 +1,29 @@
 .constructorWrapper {
-    width: 100%;
-    min-height: 100dvh;
-    position: relative;
-    overflow: hidden;
+  width: 100%;
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
 }
 
 .constructorWrapperCanvas {
-    position: absolute !important;
-    bottom: 0;
-    height: calc(100dvh + 231px) !important;
+  position: absolute !important;
+  bottom: 0;
+  height: calc(100dvh + 231px) !important;
 }
 
+/* Constructor Preview */
+
 .constructorPreviewWrapperCanvasArea {
-    position: relative !important;
-    width: 100%;
-    height: auto !important;
-    aspect-ratio: 338 / 314;
+  position: relative !important;
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: 338 / 314;
 }
 
 .constructorPreviewWrapperCanvas {
-    position: relative !important;
-    width: 100%;
-    height: auto !important;
-    aspect-ratio: 338 / 314;
-    z-index: 4;
+  position: relative !important;
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: 338 / 314;
+  z-index: 4;
 }

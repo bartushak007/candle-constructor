@@ -11,9 +11,11 @@ import candles from "./models";
 import AngleGroup from "./modules/AngleGroup";
 import { useSpring } from "@react-spring/core";
 import useInit from "../../hooks/useInit";
+import RotateIcon from "./modules/rotate-icon/RotateIcon";
 
 const Constructor = ({ selectedSet, saveUserColorsSet }) => {
   const [isInit, setIsInit] = React.useState(true);
+  const [wasOrbitControlsClicked, setWasOrbitControlsClicked] = React.useState(false);
   const [wasOrbitControlsChanged, setWasOrbitControlsChanged] =
     React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
@@ -126,6 +128,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
 
   return (
     <div className="constructorWrapper">
+      {!wasOrbitControlsClicked && <RotateIcon />}
       <Canvas
         className="constructorWrapperCanvas"
         dpr={[1, isAndroid() ? 1.5 : 3]}
@@ -134,6 +137,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
         onMouseDown={() => {
           swipeStartTime.current = new Date().getTime();
         }}
+        
       >
         {resetState && !isClosing && (
           <ResetInitCameraPosition stopReset={() => setResetState(false)} />
@@ -166,6 +170,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
         <OrbitControls
           enablePan={false}
           onStart={(e) => {
+            setWasOrbitControlsClicked(true);
             cameraPositionRef.current = { ...e.target?.object?.position };
           }}
           onEnd={alignOrbit}
