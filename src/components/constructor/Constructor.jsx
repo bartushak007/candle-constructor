@@ -15,7 +15,8 @@ import RotateIcon from "./modules/rotate-icon/RotateIcon";
 
 const Constructor = ({ selectedSet, saveUserColorsSet }) => {
   const [isInit, setIsInit] = React.useState(true);
-  const [wasOrbitControlsClicked, setWasOrbitControlsClicked] = React.useState(false);
+  const [wasOrbitControlsClicked, setWasOrbitControlsClicked] =
+    React.useState(false);
   const [wasOrbitControlsChanged, setWasOrbitControlsChanged] =
     React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
@@ -54,9 +55,12 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
     let colors = [...paletteColors];
     const newModels = models.map((model) => {
       const colorId = getRandomArrayItem(colors)?.id;
-      colors = colors.length
-        ? colors.filter((c) => c.id !== colorId)
-        : { ...paletteColors };
+
+      if (!colors.length) {
+        colors = [...paletteColors];
+      }
+      colors = colors.filter((c) => c.id !== colorId);
+
       return {
         ...model,
         colorId: colorId,
@@ -137,7 +141,6 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
         onMouseDown={() => {
           swipeStartTime.current = new Date().getTime();
         }}
-        
       >
         {resetState && !isClosing && (
           <ResetInitCameraPosition stopReset={() => setResetState(false)} />

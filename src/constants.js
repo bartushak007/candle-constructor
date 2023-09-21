@@ -1,28 +1,25 @@
+import color1 from "./assets/color-covers/1.png";
+import color2 from "./assets/color-covers/2.png";
+import color3 from "./assets/color-covers/3.png";
+import color4 from "./assets/color-covers/4.png";
+import color5 from "./assets/color-covers/5.png";
+import color6 from "./assets/color-covers/6.png";
+import color7 from "./assets/color-covers/7.png";
+import color8 from "./assets/color-covers/8.png";
+
 export const modelColors = {
   initModelColor: "#b3b3b3",
 };
 
 export const paletteColors = [
-  { id: "0", color: "#fff", text: "WHITE" },
-  { id: "1", color: "#ff0000", text: "RED" },
-  { id: "2", color: "#00ff00", text: "GREEN" },
-  { id: "3", color: "#0000ff", text: "BLUE" },
-  { id: "4", color: "#ffff00", text: "YELLOW" },
-  { id: "5", color: "#ff00ff", text: "MAGENTA" },
-  { id: "6", color: "#00ffff", text: "CYAN" },
-  { id: "7", color: "#ffa500", text: "ORANGE" },
-  { id: "8", color: "#800080", text: "PURPLE" },
-  { id: "9", color: "#ff8c00", text: "D ORANGE" },
-  { id: "10", color: "#8a2be2", text: "B VIOLET" },
-  { id: "11", color: "#5f9ea0", text: "C BLUE" },
-  { id: "12", color: "#ff69b4", text: "H PINK" },
-  { id: "13", color: "#008b8b", text: "D CYAN" },
-  { id: "14", color: "#8b008b", text: "D MGT" },
-  { id: "15", color: "#00fa9a", text: "X GREEN" },
-  { id: "16", color: "#f08080", text: "L CORAL" },
-  { id: "17", color: "#dda0dd", text: "PLUM" },
-  { id: "18", color: "#20b2aa", text: "S GREEN" },
-  { id: "19", color: "#000", text: "BLACK" },
+  { id: "0", color: "#411519", text: "Deep Burgundy", cover: color1 },
+  { id: "1", color: "#b87c90", text: "Blush Pink", cover: color2 },
+  { id: "2", color: "#e580a3", text: "Rose Quartz", cover: color3 },
+  { id: "3", color: "#453442", text: "Plum Purple", cover: color4 },
+  { id: "4", color: "#889180", text: "Moss Green", cover: color5 },
+  { id: "5", color: "#726318", text: "Olive Brown", cover: color6 },
+  { id: "6", color: "#ff6401", text: "Tangerine Orange", cover: color7 },
+  { id: "7", color: "#db005e", text: "Raspberry Red", cover: color8 },
 ];
 
 export const paletteColorsByIdDictionary = paletteColors.reduce(

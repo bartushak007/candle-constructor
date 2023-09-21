@@ -11,26 +11,28 @@ const HorizontalColors = ({ updateColor, selectedColorId }) => {
   };
 
   return (
-    <div className="horizontalColors" ref={ref} onWheel={handleWheel}>
-      {paletteColors.map((color) => (
-        <div key={color.text} className="horizontalColorsColorWrapper">
-          <button
-            onClick={() => updateColor(color.id)}
-            className="horizontalColorsColorBox"
-            id={`horizontalColorsColorBox-${color.id}`}
-            style={{
-              backgroundColor: color.color,
-              border: selectedColorId === color.id ? "1px solid #000" : "0",
-            }}
-          />
-          <label
-            className="horizontalColorsColorText"
-            htmlFor={`horizontalColorsColorBox-${color.text}`}
-          >
-            {color.text}
-          </label>
-        </div>
-      ))}
+    <div className="horizontalColorsMain">
+      <div className="horizontalColors" ref={ref} onWheel={handleWheel}>
+        {paletteColors.map((color) => (
+          <div key={color.text} className="horizontalColorsColorWrapper">
+            <button
+              onClick={() => updateColor(color.id)}
+              className="horizontalColorsColorBox"
+              id={`horizontalColorsColorBox-${color.id}`}
+              style={{
+                backgroundImage: `url(${color.cover})`,
+                border: selectedColorId === color.id ? "1px solid #000" : "0",
+              }}
+            />
+            <label
+              className="horizontalColorsColorText"
+              htmlFor={`horizontalColorsColorBox-${color.text}`}
+            >
+              {color.text}
+            </label>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
