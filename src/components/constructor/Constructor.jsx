@@ -56,10 +56,11 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
     const newModels = models.map((model) => {
       const colorId = getRandomArrayItem(colors)?.id;
 
+      colors = colors.filter((c) => c.id !== colorId);
+
       if (!colors.length) {
         colors = [...paletteColors];
       }
-      colors = colors.filter((c) => c.id !== colorId);
 
       return {
         ...model,
