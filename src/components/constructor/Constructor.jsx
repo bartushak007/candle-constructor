@@ -12,12 +12,11 @@ import AngleGroup from "./modules/AngleGroup";
 import { useSpring } from "@react-spring/core";
 import useInit from "../../hooks/useInit";
 import RotateIcon from "./modules/rotate-icon/RotateIcon";
+import useCustomRotate from "./useCustomRotate";
 
 const Constructor = ({ selectedSet, saveUserColorsSet }) => {
   const [isInit, setIsInit] = React.useState(true);
-  const [wasOrbitControlsClicked, setWasOrbitControlsClicked] =
-    React.useState(false);
-  const [wasOrbitControlsChanged, setWasOrbitControlsChanged] =
+  const [wereOrbitControlsClicked, setWereOrbitControlsClicked] =
     React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
 
@@ -88,30 +87,6 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
     setIsClosing(true);
   };
 
-  const cameraPositionRef = React.useRef(null);
-
-  const alignOrbit = (e) => {
-    const { x, y, z } = e.target?.object?.position;
-    const differencePositions = [
-      x - cameraPositionRef.current.x,
-      y - cameraPositionRef.current.y,
-      z - cameraPositionRef.current.z,
-    ];
-    const compare = (v, a, b) => v > a || v < b;
-    if (
-      compare(differencePositions[0], 0.1, -0.1) ||
-      compare(differencePositions[2], 0.1, -0.1)
-    ) {
-      setWasOrbitControlsChanged(true);
-    }
-  };
-
-  React.useEffect(() => {
-    if (resetState && !isClosing && wasOrbitControlsChanged) {
-      setWasOrbitControlsChanged(false);
-    }
-  }, [resetState, isClosing, wasOrbitControlsChanged]);
-
   const lastSelectedModelRef = React.useRef(null);
   const currentSelectedModelRef = React.useRef(null);
   const swipeStartTime = React.useRef(null);
@@ -131,27 +106,50 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
     }
   };
 
+  const orbitControlsRef = React.useRef();
+  const customRotate = useCustomRotate(orbitControlsRef);
+
   return (
     <div className="constructorWrapper">
-      {!wasOrbitControlsClicked && <RotateIcon />}
+      {!wereOrbitControlsClicked && <RotateIcon />}
       <Canvas
         className="constructorWrapperCanvas"
         dpr={[1, isAndroid() ? 1.5 : 3]}
         onClick={resetSelectedModel}
         shadows
-        onMouseDown={() => {
+        onMouseDown={(e) => {
           swipeStartTime.current = new Date().getTime();
+          customRotate.handleMouseDown(e);
+          !wereOrbitControlsClicked && setWereOrbitControlsClicked(true);
         }}
+        onMouseMove={customRotate.handleMouseMove}
+        onMouseUp={customRotate.handleMouseUp}
+        onMouseOut={customRotate.handleMouseUp}
+        
+        onTouchStart={() => {
+          !wereOrbitControlsClicked && setWereOrbitControlsClicked(true);
+        }}
+        onTouchMove={customRotate.handleTouchMove}
+        onTouchEnd={customRotate.handleTouchEnd}
       >
         {resetState && !isClosing && (
-          <ResetInitCameraPosition stopReset={() => setResetState(false)} />
+          <ResetInitCameraPosition
+            stopReset={() => setResetState(false)}
+            orbitControlsRef={orbitControlsRef}
+            rotatePositions={customRotate.rotatePositions}
+            setRotatePositions={customRotate.setRotatePositions}
+          />
         )}
         {isClosing && <ZoomOutCameraPosition />}
         <ambientLight intensity={0.9} />
         <directionalLight position={[-2, -2, -2]} intensity={0.4} />
         <directionalLight position={[1, 3, 4]} castShadow />
 
-        <AngleGroup scale={scale} isAngle={!wasOrbitControlsChanged}>
+        <AngleGroup
+          scale={scale}
+          rotatePositions={customRotate.rotatePositions}
+          orbitControlsRef={orbitControlsRef}
+        >
           {models.map((model) => {
             const Model = candles[model.type];
 
@@ -171,14 +169,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
           })}
         </AngleGroup>
 
-        <OrbitControls
-          enablePan={false}
-          onStart={(e) => {
-            setWasOrbitControlsClicked(true);
-            cameraPositionRef.current = { ...e.target?.object?.position };
-          }}
-          onEnd={alignOrbit}
-        />
+        <OrbitControls enableRotate={false} ref={orbitControlsRef} />
       </Canvas>
 
       <ColorsPalette

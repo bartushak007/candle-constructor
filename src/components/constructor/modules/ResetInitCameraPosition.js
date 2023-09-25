@@ -1,6 +1,11 @@
 import { useFrame } from "@react-three/fiber";
 
-const ResetInitCameraPosition = ({ stopReset }) => {
+const ResetInitCameraPosition = ({
+  stopReset,
+  orbitControlsRef,
+  rotatePositions,
+  setRotatePositions,
+}) => {
   useFrame(({ camera }) => {
     const getPosition = (pX, compare = 0) => {
       const roundX = Math.round(pX * 10) / 10;
@@ -19,15 +24,31 @@ const ResetInitCameraPosition = ({ stopReset }) => {
       return compare;
     };
 
-    let x = getPosition(camera.position.x);
-    let y = getPosition(camera.position.y);
-    let z = getPosition(camera.position.z, 5);
+    let rotatePositionX = getPosition(rotatePositions.x);
+    let rotatePositionY = getPosition(rotatePositions.y, 60);
 
-    if (x === 0 && y === 0 && z === 5) {
+    let positionZ = getPosition(camera.position.z, 5);
+
+    const target = orbitControlsRef.current?.target;
+
+    let panX = getPosition(target.x ?? 0);
+    let panY = getPosition(target.y ?? 0);
+    let panZ = getPosition(target.z ?? 0);
+
+    if (
+      rotatePositionX === 0 &&
+      rotatePositionY === 60 &&
+      positionZ === 5 &&
+      panX === 0 &&
+      panY === 0 &&
+      panZ === 0
+    ) {
       stopReset();
     }
 
-    camera.position.set(x, y, z);
+    camera.position.set(0, 0, positionZ);
+    orbitControlsRef.current?.target.set(panX, panY, panZ);
+    setRotatePositions({ x: rotatePositionX, y: rotatePositionY });
   });
 
   return null;
