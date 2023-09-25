@@ -25,7 +25,7 @@ const ResetInitCameraPosition = ({
     };
 
     let rotatePositionX = getPosition(rotatePositions.x);
-    let rotatePositionY = getPosition(rotatePositions.y, 60);
+    let rotatePositionY = getPosition(rotatePositions.y, 0.3);
 
     let positionZ = getPosition(camera.position.z, 5);
 
@@ -37,7 +37,7 @@ const ResetInitCameraPosition = ({
 
     if (
       rotatePositionX === 0 &&
-      rotatePositionY === 60 &&
+      rotatePositionY === 0.3 &&
       positionZ === 5 &&
       panX === 0 &&
       panY === 0 &&
