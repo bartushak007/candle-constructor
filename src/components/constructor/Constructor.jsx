@@ -125,7 +125,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
         onMouseMove={customRotate.handleMouseMove}
         onMouseUp={customRotate.handleMouseUp}
         onMouseOut={customRotate.handleMouseUp}
-        
+
         onTouchStart={() => {
           !wereOrbitControlsClicked && setWereOrbitControlsClicked(true);
         }}
@@ -169,7 +169,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
           })}
         </AngleGroup>
 
-        <OrbitControls enableRotate={false} ref={orbitControlsRef} />
+        <OrbitControls enableRotate={false} ref={orbitControlsRef} e />
       </Canvas>
 
       <ColorsPalette
