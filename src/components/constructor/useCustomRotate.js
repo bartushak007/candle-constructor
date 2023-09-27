@@ -18,11 +18,17 @@ const useCustomRotate = (orbitControlsRef) => {
   const handleMouseUp = () => {
     setIsRotating(false);
     prevEventClientPositions.current = null;
+    prevRotatePositions.current = null;
+    setRotatePositions((p) => {
+      const remainderOfPosition = rotatePositions.x % (Math.PI * 2);
+
+      return { ...p, x: 0 + remainderOfPosition };
+    });
   };
 
   const throttleRotatePosition = React.useMemo(() => {
     return throttle(
-      (x, y) =>
+      () =>
         setRotatePositions((p) => {
           const prev = prevRotatePositions.current || p;
           return {
@@ -57,12 +63,6 @@ const useCustomRotate = (orbitControlsRef) => {
         };
 
         throttleRotatePosition(x, y);
-        // setRotatePositions((prev) => {
-        //   return {
-        //     x: prev.x + x,
-        //     y: prev.y + y > 1.6 ? 1.6 : prev.y + y <= -1.6 ? -1.6 : prev.y + y,
-        //   };
-        // });
       }
 
       prevEventClientPositions.current = { clientX, clientY };
