@@ -26,7 +26,7 @@ export default function ExplosionConfetti(
     areaHeight = 2,
     fallingHeight = 10,
     fallingSpeed = 7,
-    colors = [0x0000ff, 0xff0000, 0xffff00],
+    colors = [0xffff00, 0xffff00, 0xffff00],
     enableShadows = false,
   },
   props
