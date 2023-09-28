@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./assets/neue-montreal/PPNeueMontreal-Thin.otf");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./assets/neue-montreal/NeueMontreal.otf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./assets/neue-montreal/PPNeueMontreal-Medium.otf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./assets/neue-montreal/PPNeueMontreal-Bold.otf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* @font-face {
+  font-family: "NeueMontreal";
+  src: url("./assets/neue-montreal/PPNeueMontreal-Italic.otf");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("./assets/neue-montreal/PPNeueMontreal-Italic.otf");
+  font-weight: 600;
+  font-style: italic;
+} */

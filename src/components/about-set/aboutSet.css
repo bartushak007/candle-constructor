@@ -46,7 +46,7 @@
 
 .aboutSetTitle {
   color: #4a4c4e;
-  font-family: Roboto;
+  font-family: NeueMontreal;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -55,7 +55,7 @@
 
 .aboutSetPrice {
   color: #000;
-  font-family: PP Neue Montreal;
+  font-family: NeueMontreal;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -73,7 +73,7 @@
   border: 1px solid #000;
   background: #000;
   color: #fff;
-  font-family: Roboto;
+  font-family: NeueMontreal;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -125,7 +125,7 @@
 
 .aboutSetYouWillGetTitle {
   color: #4a4c4e;
-  font-family: Roboto;
+  font-family: NeueMontreal;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -145,7 +145,7 @@
 }
 .aboutSetYouWillGetName {
   color: #000;
-  font-family: Roboto;
+  font-family: NeueMontreal;
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
