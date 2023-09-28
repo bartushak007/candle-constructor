@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/candle-constructor/static/css/main.6b60c10e.css",
+    "main.css": "/candle-constructor/static/css/main.67529b6e.css",
     "main.js": "/candle-constructor/static/js/main.9c0f6bb1.js",
     "static/js/787.95bd7881.chunk.js": "/candle-constructor/static/js/787.95bd7881.chunk.js",
     "static/media/3.png": "/candle-constructor/static/media/3.57d809d497177d777ad5.png",
@@ -11,6 +11,10 @@
     "static/media/8.png": "/candle-constructor/static/media/8.74928cec53313fd92f63.png",
     "static/media/1.png": "/candle-constructor/static/media/1.b00e5db116908134494e.png",
     "static/media/7.png": "/candle-constructor/static/media/7.29e61da1b38542ccc614.png",
+    "static/media/PPNeueMontreal-Medium.otf": "/candle-constructor/static/media/PPNeueMontreal-Medium.0f34f4714f1b26e0dedc.otf",
+    "static/media/PPNeueMontreal-Bold.otf": "/candle-constructor/static/media/PPNeueMontreal-Bold.34a4eb1a093eb36b2f46.otf",
+    "static/media/NeueMontreal.otf": "/candle-constructor/static/media/NeueMontreal.cd21cf351f4da50cf75d.otf",
+    "static/media/PPNeueMontreal-Thin.otf": "/candle-constructor/static/media/PPNeueMontreal-Thin.113878d75d11299845e2.otf",
     "static/media/middleSet.png": "/candle-constructor/static/media/middleSet.75cb7660b8cf62b491e1.png",
     "static/media/mastercard.svg": "/candle-constructor/static/media/mastercard.1d9bca6d8c1a0d454d31269fb333f2f1.svg",
     "static/media/globe.svg": "/candle-constructor/static/media/globe.d78816570fdd0a9ddb1a34b8ed1a115c.svg",
@@ -18,12 +22,12 @@
     "index.html": "/candle-constructor/index.html",
     "static/media/card.svg": "/candle-constructor/static/media/card.c94e33bb3c530a371129f22240beaf63.svg",
     "static/media/stand.svg": "/candle-constructor/static/media/stand.81d8f7ee33415bfd9fa9c594122f290e.svg",
-    "main.6b60c10e.css.map": "/candle-constructor/static/css/main.6b60c10e.css.map",
+    "main.67529b6e.css.map": "/candle-constructor/static/css/main.67529b6e.css.map",
     "main.9c0f6bb1.js.map": "/candle-constructor/static/js/main.9c0f6bb1.js.map",
     "787.95bd7881.chunk.js.map": "/candle-constructor/static/js/787.95bd7881.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6b60c10e.css",
+    "static/css/main.67529b6e.css",
     "static/js/main.9c0f6bb1.js"
   ]
 }
