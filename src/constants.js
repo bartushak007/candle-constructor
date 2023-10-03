@@ -12,14 +12,14 @@ export const modelColors = {
 };
 
 export const paletteColors = [
-  { id: "0", color: "#521915", text: "Deep Burgundy", cover: color1 },
-  { id: "1", color: "#b87c8f", text: "Blush Pink", cover: color2 },
-  { id: "2", color: "#ff73bb", text: "Rose Quartz", cover: color3 },
-  { id: "3", color: "#544352", text: "Plum Purple", cover: color4 },
-  { id: "4", color: "#8f9987", text: "Moss Green", cover: color5 },
-  { id: "5", color: "#85472a", text: "Olive Brown", cover: color6 },
-  { id: "6", color: "#ff7323", text: "Tangerine Orange", cover: color7 },
-  { id: "7", color: "#ec276b", text: "Raspberry Red", cover: color8 },
+  { id: "0", color: "#864444", text: "Deep Burgundy", cover: color1 },
+  { id: "1", color: "#cf98a3", text: "Blush Pink", cover: color2 },
+  { id: "2", color: "#ec8ba6", text: "Rose Quartz", cover: color3 },
+  { id: "3", color: "#897988", text: "Plum Purple", cover: color4 },
+  { id: "4", color: "#94a29e", text: "Moss Green", cover: color5 },
+  { id: "5", color: "#a09057", text: "Olive Brown", cover: color6 },
+  { id: "6", color: "#ff834b", text: "Tangerine Orange", cover: color7 },
+  { id: "7", color: "#e76b7b", text: "Raspberry Red", cover: color8 },
 ];
 
 export const paletteColorsByIdDictionary = paletteColors.reduce(
