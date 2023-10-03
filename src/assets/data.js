@@ -9,6 +9,7 @@ export const candleSets = [
     coverSrc: middleSetCover,
     constructor: "bigConstructor",
     price: '$50',
+    startAngle: 0.3,
     models: [
       {
         type: "big-short-candle",
@@ -144,6 +145,7 @@ export const candleSets = [
     price: '$35',
     coverSrc: middleSetCover,
     constructor: "middleConstructor",
+    startAngle: 0,
     models: [
       {
         type: "thin-tall-candle",
@@ -278,6 +280,7 @@ export const candleSets = [
     price: '$25',
     coverSrc: middleSetCover,
     constructor: "smallConstructor",
+    startAngle: 0,
     models: [
       {
         type: "thin-tall-candle",

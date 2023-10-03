@@ -1,11 +1,11 @@
 import throttle from "lodash.throttle";
 import React from "react";
 
-const useCustomRotate = (orbitControlsRef) => {
+const useCustomRotate = (orbitControlsRef, startAngle) => {
   const [isRotating, setIsRotating] = React.useState(false);
   const [rotatePositions, setRotatePositions] = React.useState({
     x: 0,
-    y: 0.3,
+    y: startAngle ?? 0,
   });
 
   const prevEventClientPositions = React.useRef(null);

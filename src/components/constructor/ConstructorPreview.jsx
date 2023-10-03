@@ -96,7 +96,7 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
           <ambientLight intensity={0.9} />
           <directionalLight position={[1, 3, 4]} castShadow />
 
-          <RotateGroup scale={scale} rotate={isReady}>
+          <RotateGroup scale={scale} rotate={isReady} startAngle={selectedSet.startAngle}>
             {selectedSet.models.map((model) => {
               const Model = candles[model.type];
 

@@ -107,7 +107,7 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
   };
 
   const orbitControlsRef = React.useRef();
-  const customRotate = useCustomRotate(orbitControlsRef);
+  const customRotate = useCustomRotate(orbitControlsRef, selectedSet.startAngle);
 
   return (
     <div className="constructorWrapper">
