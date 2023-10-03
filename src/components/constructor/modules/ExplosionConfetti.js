@@ -26,7 +26,7 @@ export default function ExplosionConfetti(
     areaHeight = 2,
     fallingHeight = 10,
     fallingSpeed = 7,
-    colors = [0xffff00, 0xffff00, 0xffff00],
+    colors = ['#fff'],
     enableShadows = false,
   },
   props
@@ -35,7 +35,7 @@ export default function ExplosionConfetti(
   const [booms, setBooms] = useState([]);
 
   rate = rate / 100;
-  const geometry = new THREE.PlaneGeometry(0.08, 0.08, 1, 1);
+  const geometry = new THREE.PlaneGeometry(0.06, 0.06, 1, 1);
 
   function explode() {
     const boom = new THREE.Object3D();
