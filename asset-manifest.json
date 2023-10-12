@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/candle-constructor/static/css/main.67529b6e.css",
-    "main.js": "/candle-constructor/static/js/main.62512ce2.js",
+    "main.js": "/candle-constructor/static/js/main.d848b48d.js",
     "static/js/787.95bd7881.chunk.js": "/candle-constructor/static/js/787.95bd7881.chunk.js",
     "static/media/3.png": "/candle-constructor/static/media/3.57d809d497177d777ad5.png",
     "static/media/4.png": "/candle-constructor/static/media/4.d6855c20c4e34a96a842.png",
@@ -23,11 +23,11 @@
     "static/media/card.svg": "/candle-constructor/static/media/card.c94e33bb3c530a371129f22240beaf63.svg",
     "static/media/stand.svg": "/candle-constructor/static/media/stand.81d8f7ee33415bfd9fa9c594122f290e.svg",
     "main.67529b6e.css.map": "/candle-constructor/static/css/main.67529b6e.css.map",
-    "main.62512ce2.js.map": "/candle-constructor/static/js/main.62512ce2.js.map",
+    "main.d848b48d.js.map": "/candle-constructor/static/js/main.d848b48d.js.map",
     "787.95bd7881.chunk.js.map": "/candle-constructor/static/js/787.95bd7881.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.67529b6e.css",
-    "static/js/main.62512ce2.js"
+    "static/js/main.d848b48d.js"
   ]
 }
