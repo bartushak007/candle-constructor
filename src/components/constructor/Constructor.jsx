@@ -142,7 +142,6 @@ const Constructor = ({ selectedSet, saveUserColorsSet }) => {
         )}
         {isClosing && <ZoomOutCameraPosition />}
         <ambientLight intensity={1} />
-        {/* <directionalLight position={[-2, -2, -2]} intensity={0.4} /> */}
         <directionalLight position={[0, 0, 400]} intensity={1} castShadow />
 
         <AngleGroup

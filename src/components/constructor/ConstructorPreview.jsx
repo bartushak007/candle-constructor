@@ -93,8 +93,8 @@ const ConstructorPreview = ({ selectedSet, completeCandleConstructor }) => {
             <ResetInitCameraPosition stopReset={() => setResetState(false)} />
           )}
           {isClosing && <ZoomOutCameraPosition />}
-          <ambientLight intensity={0.9} />
-          <directionalLight position={[1, 3, 4]} castShadow />
+          <ambientLight intensity={1} />
+          <directionalLight position={[0, 0, 400]} castShadow />
 
           <RotateGroup scale={scale} rotate={isReady} startAngle={selectedSet.startAngle}>
             {selectedSet.models.map((model) => {
